@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "apple-wood-rebarked:block/apple_planks"
+  }
+}

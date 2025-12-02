@@ -1,0 +1,6 @@
+{
+  "parent": "apple-wood-rebarked:item/slingshot",
+  "textures": {
+    "layer0": "apple-wood-rebarked:item/slingshot_charge0"
+  }
+}

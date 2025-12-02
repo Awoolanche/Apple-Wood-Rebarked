@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "apple-wood-rebarked:block/apple_planks",
+    "side": "apple-wood-rebarked:block/apple_planks",
+    "top": "apple-wood-rebarked:block/apple_planks"
+  }
+}

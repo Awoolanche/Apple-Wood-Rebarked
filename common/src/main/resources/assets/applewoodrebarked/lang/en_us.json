@@ -1,0 +1,28 @@
+{
+  "Creative Tabs": "Creative Tabs",
+    "itemgroup.applewoodrebarked.apple_wood_rebarked_group": "[Let's Do] Apple Wood Rebarked",
+
+  "Items": "Items",
+    "item.applewoodrebarked.test_item": "Test Item",
+    "item.applewoodrebarked.apple_boat": "Apple Boat",
+    "item.applewoodrebarked.apple_chest_boat": "Apple Chest Boat",
+    "item.applewoodrebarked.slingshot": "Slingshot",
+
+
+  "Blocks": "Blocks",
+    "block.applewoodrebarked.test_block": "Test Block",
+    "block.applewoodrebarked.apple_planks": "Apple Planks",
+    "block.applewoodrebarked.apple_stairs": "Apple Stairs",
+    "block.applewoodrebarked.apple_slab": "Apple Slab",
+    "block.applewoodrebarked.stripped_apple_log": "Stripped Apple Log",
+    "block.applewoodrebarked.stripped_apple_wood": "Stripped Apple Wood",
+    "block.applewoodrebarked.apple_fence": "Apple Fence",
+    "block.applewoodrebarked.apple_fence_gate": "Apple Fence Gate",
+    "block.applewoodrebarked.apple_door": "Apple Door",
+    "block.applewoodrebarked.apple_button": "Apple Button",
+    "block.applewoodrebarked.apple_pressure_plate": "Apple Pressure Plate",
+    "block.applewoodrebarked.apple_trapdoor": "Apple Trapdoor",
+    "block.applewoodrebarked.apple_sign": "Apple Sign",
+    "block.applewoodrebarked.apple_hanging_sign": "Apple Hanging Sign"
+
+}
