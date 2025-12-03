@@ -112,35 +112,40 @@
 [Architectury Transformer DEBUG]  - C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\.gradle\loom-cache\remapped_mods\remapped\net\fabricmc\fabric-api\fabric-resource-loader-v0-37021796\1.3.1+5b5275af19\fabric-resource-loader-v0-37021796-1.3.1+5b5275af19.jar
 [Architectury Transformer DEBUG]  - C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\.gradle\loom-cache\remapped_mods\remapped\net\fabricmc\fabric-api\fabric-sound-api-v1-37021796\1.0.23+6573ed8c19\fabric-sound-api-v1-37021796-1.0.23+6573ed8c19.jar
 [Architectury Transformer DEBUG]  - C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\.gradle\loom-cache\remapped_mods\remapped\net\fabricmc\fabric-api\fabric-transitive-access-wideners-v1-37021796\6.2.0+45b9699719\fabric-transitive-access-wideners-v1-37021796-6.2.0+45b9699719.jar
-[Architectury Transformer] Read classpath in 1.803 s
+[Architectury Transformer] Read classpath in 1.883 s
 [Architectury Transformer DEBUG] Closed File Systems for C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Transforming 5 transformer(s) from C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar to C:\Users\Komputer\AppData\Local\Temp\12788467498753127900.jar: 
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@770c2e6b
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@1a052a00
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@4d826d77
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@61009542
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@77e9807f
-[Architectury Transformer DEBUG] Transforming from C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar to C:\Users\Komputer\AppData\Local\Temp\12788467498753127900.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
+[Architectury Transformer DEBUG] Transforming 5 transformer(s) from C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar to C:\Users\Komputer\AppData\Local\Temp\2801007915855336722.jar: 
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@2b4a2ec7
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@564718df
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@51b7e5df
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@18a70f16
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@62e136d3
+[Architectury Transformer DEBUG] Transforming from C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar to C:\Users\Komputer\AppData\Local\Temp\2801007915855336722.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/AppleWoodRebarked with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/blocks/ModBlocks with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/items/ModItems with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/util/ModTabs with maxs=true frames=true
 [Architectury Transformer DEBUG] Checking whether /applewoodrebarked.mixins.json is a mixin config.
-[Architectury Transformer DEBUG] Closed File Systems for C:\Users\Komputer\AppData\Local\Temp\12788467498753127900.jar
+[Architectury Transformer DEBUG] Closed File Systems for C:\Users\Komputer\AppData\Local\Temp\2801007915855336722.jar
 [Architectury Transformer] Listening at C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Temporary jar [C:\Users\Komputer\AppData\Local\Temp\12788467498753127900.jar] contains packages: net.awoolanche.applewoodrebarked.items, net.awoolanche.applewoodrebarked.blocks, net.awoolanche.applewoodrebarked
+[Architectury Transformer DEBUG] Temporary jar [C:\Users\Komputer\AppData\Local\Temp\2801007915855336722.jar] contains packages: net.awoolanche.applewoodrebarked.items, net.awoolanche.applewoodrebarked.blocks, net.awoolanche.applewoodrebarked, net.awoolanche.applewoodrebarked.util
 [Architectury Transformer DEBUG] Closed File Systems for C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\devlibs\applewoodrebarked-common-1.0.0-dev.jar
 [Architectury Transformer DEBUG] Classpath entry [C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\fabric\build\resources\main] contains packages: 
 [Architectury Transformer DEBUG] Classpath entry [C:\Users\Komputer\Desktop\applewoodrebarked-1.21.1-architectury\common\build\resources\main] contains packages: 
 [Architectury Transformer DEBUG] Transforming from net/awoolanche/applewoodrebarked/AppleWoodRebarked.class to net/awoolanche/applewoodrebarked/AppleWoodRebarked.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/AppleWoodRebarked with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/AppleWoodRebarked in 1.386 ms
+[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/AppleWoodRebarked in 1.520 ms
+[Architectury Transformer DEBUG] Transforming from net/awoolanche/applewoodrebarked/util/ModTabs.class to net/awoolanche/applewoodrebarked/util/ModTabs.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/util/ModTabs with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/util/ModTabs in 1.243 ms
 [Architectury Transformer DEBUG] Transforming from net/awoolanche/applewoodrebarked/blocks/ModBlocks.class to net/awoolanche/applewoodrebarked/blocks/ModBlocks.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/blocks/ModBlocks with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/blocks/ModBlocks in 955.1 μs
+[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/blocks/ModBlocks in 1.028 ms
 [Architectury Transformer DEBUG] Transforming from net/awoolanche/applewoodrebarked/items/ModItems.class to net/awoolanche/applewoodrebarked/items/ModItems.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/awoolanche/applewoodrebarked/items/ModItems with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/items/ModItems in 1.275 ms
+[Architectury Transformer DEBUG] Transformed net/awoolanche/applewoodrebarked/items/ModItems in 1.158 ms

@@ -3,6 +3,7 @@ package net.awoolanche.applewoodrebarked.items;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
+import net.awoolanche.applewoodrebarked.util.ModTabs;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -18,8 +19,8 @@ public class ModItems {
     public static RegistrySupplier<Item> TEST_BLOCK;
 
     public static void init() {
-        TEST_ITEM = registerItem("test_item", () -> new Item(baseProperties("test_item").arch$tab(CreativeModeTabs.INGREDIENTS)));
-        TEST_BLOCK = registerItem("test_block", () -> new BlockItem(ModBlocks.TEST_BLOCK.get(), baseProperties("test_block").arch$tab(CreativeModeTabs.INGREDIENTS)));
+        TEST_ITEM = registerItem("test_item", () -> new Item(baseProperties("test_item").arch$tab(ModTabs.APPLE_WOOD_REBARKED_TAB)));
+        TEST_BLOCK = registerItem("test_block", () -> new BlockItem(ModBlocks.TEST_BLOCK.get(), baseProperties("test_block").arch$tab(ModTabs.APPLE_WOOD_REBARKED_TAB)));
         ITEMS.register();
     }
 

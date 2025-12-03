@@ -2,6 +2,7 @@ package net.awoolanche.applewoodrebarked;
 
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.items.ModItems;
+import net.awoolanche.applewoodrebarked.util.ModTabs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +16,8 @@ public final class AppleWoodRebarked {
         LOGGER.info("[Let's Do Add-on] Apple Wood Rebarked initialized!");
 
         // Initialization
+        ModTabs.init();
         ModBlocks.init();
         ModItems.init();
-
     }
 }
