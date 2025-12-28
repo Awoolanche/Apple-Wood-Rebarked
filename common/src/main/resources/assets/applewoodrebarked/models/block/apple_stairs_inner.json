@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "bottom": "apple-wood-rebarked:block/apple_planks",
-    "side": "apple-wood-rebarked:block/apple_planks",
-    "top": "apple-wood-rebarked:block/apple_planks"
+    "bottom": "applewoodrebarked:block/apple_planks",
+    "side": "applewoodrebarked:block/apple_planks",
+    "top": "applewoodrebarked:block/apple_planks"
   }
 }

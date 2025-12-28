@@ -1,8 +1,8 @@
 package net.awoolanche.applewoodrebarked.fabric;
 
+import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
 import net.fabricmc.api.ModInitializer;
 
-import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
 
 public final class AppleWoodRebarkedFabric implements ModInitializer {
     @Override

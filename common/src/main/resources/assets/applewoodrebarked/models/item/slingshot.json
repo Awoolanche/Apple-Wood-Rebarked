@@ -2,11 +2,11 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "apple-wood-rebarked:item/slingshot"
+		"layer0": "applewoodrebarked:item/slingshot"
 	},
 	"overrides": [
-		{"predicate": {"pulling": 1, "pull": 0.45}, "model": "apple-wood-rebarked:item/slingshot_charge0"},
-		{"predicate": {"pulling": 1, "pull": 0.9}, "model": "apple-wood-rebarked:item/slingshot_charge1"}
+		{"predicate": {"pulling": 1, "pull": 0.45}, "model": "applewoodrebarked:item/slingshot_charge0"},
+		{"predicate": {"pulling": 1, "pull": 0.9}, "model": "applewoodrebarked:item/slingshot_charge1"}
 	],
 	"display": {
 		"thirdperson_righthand": {

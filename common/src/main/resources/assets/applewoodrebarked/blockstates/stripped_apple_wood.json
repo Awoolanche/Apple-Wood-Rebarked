@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "apple-wood-rebarked:block/stripped_apple_wood",
+      "model": "applewoodrebarked:block/stripped_apple_wood",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "apple-wood-rebarked:block/stripped_apple_wood"
+      "model": "applewoodrebarked:block/stripped_apple_wood"
     },
     "axis=z": {
-      "model": "apple-wood-rebarked:block/stripped_apple_wood",
+      "model": "applewoodrebarked:block/stripped_apple_wood",
       "x": 90
     }
   }

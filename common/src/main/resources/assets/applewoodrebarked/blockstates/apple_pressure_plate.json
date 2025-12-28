@@ -1,10 +1,10 @@
 {
   "variants": {
     "powered=false": {
-      "model": "apple-wood-rebarked:block/apple_pressure_plate"
+      "model": "applewoodrebarked:block/apple_pressure_plate"
     },
     "powered=true": {
-      "model": "apple-wood-rebarked:block/apple_pressure_plate_down"
+      "model": "applewoodrebarked:block/apple_pressure_plate_down"
     }
   }
 }

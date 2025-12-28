@@ -1,26 +1,28 @@
 package net.awoolanche.applewoodrebarked.items;
 
+import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
+
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
-import net.awoolanche.applewoodrebarked.util.ModTabs;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 
 import java.util.function.Supplier;
 
-public class ModItems {
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create("applewoodrebarked", Registries.ITEM);
+import static net.awoolanche.applewoodrebarked.blocks.ModBlocks.*;
 
-    public static RegistrySupplier<Item> TEST_ITEM;
-    public static RegistrySupplier<Item> TEST_BLOCK;
+public class ModItems {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create("applewoodrebarked", Registries.ITEM);
+
+    public static final RegistrySupplier<Item> TEST_ITEM = registerItem("test_item", () -> new Item(baseProperties("test_item")));;
+    public static final RegistrySupplier<Item> APPLE_SIGN_ITEM = ITEMS.register("apple_sign", () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.APPLE_SIGN.get(), APPLE_WALL_SIGN.get()));
+    public static final RegistrySupplier<Item> APPLE_HANGING_SIGN_ITEM = ITEMS.register("apple_hanging_sign", () -> new HangingSignItem(APPLE_HANGING_SIGN.get(), APPLE_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+
 
     public static void init() {
-        TEST_ITEM = registerItem("test_item", () -> new Item(baseProperties("test_item").arch$tab(ModTabs.APPLE_WOOD_REBARKED_TAB)));
-        TEST_BLOCK = registerItem("test_block", () -> new BlockItem(ModBlocks.TEST_BLOCK.get(), baseProperties("test_block").arch$tab(ModTabs.APPLE_WOOD_REBARKED_TAB)));
         ITEMS.register();
     }
 
@@ -31,5 +33,3 @@ public class ModItems {
         return new Item.Properties();
     }
 }
-
-
