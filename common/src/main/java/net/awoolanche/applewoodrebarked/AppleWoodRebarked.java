@@ -3,6 +3,7 @@ package net.awoolanche.applewoodrebarked;
 import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
+import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
@@ -26,17 +27,18 @@ public final class AppleWoodRebarked {
 
         // Initialization
         ModBlocks.init();
+        ModEntities.init();
         ModItems.init();
         ModTabs.init();
         ModBlockEntities.init();
 
     }
 
-
     public static void registerBlockEntityRenderers() {
         BlockEntityRendererRegistry.register(ModBlockEntities.APPLE_SIGN.get(), AppleSignRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.APPLE_HANGING_SIGN.get(), AppleHangingSignRenderer::new);
     }
+
     public static final ModelLayerLocation APPLE_SIGN = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath("applewoodrebarked", "sign_apple"), "main"
     );

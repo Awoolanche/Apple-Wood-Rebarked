@@ -37,6 +37,8 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_PRESSURE_PLATE.get());
                 out.accept(ModItems.APPLE_SIGN_ITEM.get());
                 out.accept(ModItems.APPLE_HANGING_SIGN_ITEM.get());
+                out.accept(ModItems.APPLE_BOAT.get());
+                out.accept(ModItems.APPLE_CHEST_BOAT.get());
 
                 out.accept(ModBlocks.APPLE_CHAIR.get());
 
