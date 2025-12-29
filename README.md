@@ -7,9 +7,9 @@ To-do list:
 - [x] Vinery imports
 - [x] Log texture swap
 - [x] Log stripping
-- [ ] Beam
+- [x] Beam
 - [x] Chair
-- [ ] Tables
+- [x] Tables
 - [ ] Cabinet
 - [ ] Drawer
 - [ ] Shelf
@@ -20,6 +20,8 @@ To-do list:
 - [ ] Custom wine
 - [ ] Cowboy hat
 - [ ] Flower crown
+
+- [ ] Fix fences not connecting
 
 Slingshot:
 - [ ] Tag-based registry for custom ammo
