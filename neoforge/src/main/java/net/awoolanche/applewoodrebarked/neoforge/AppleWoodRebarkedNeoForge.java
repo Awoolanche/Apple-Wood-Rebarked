@@ -20,6 +20,7 @@
     import net.neoforged.bus.api.SubscribeEvent;
     import net.neoforged.fml.common.Mod;
     import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+    import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
     import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 
@@ -29,6 +30,7 @@
         public AppleWoodRebarkedNeoForge(IEventBus modEventBus) {
             AppleWoodRebarked.init();
             modEventBus.addListener(this::onClientSetup);
+            modEventBus.addListener(this::commonSetup);
             modEventBus.addListener(AppleWoodRebarkedNeoForge::registerLayerDefinitions);
             modEventBus.addListener(AppleWoodRebarkedNeoForge::registerRenderers);
         }
@@ -40,6 +42,12 @@
 
                 BlockEntityRenderers.register(ModBlockEntities.APPLE_SIGN.get(), SignRenderer::new);
                 BlockEntityRenderers.register(ModBlockEntities.APPLE_HANGING_SIGN.get(), HangingSignRenderer::new);
+            });
+        }
+
+        private void commonSetup(final FMLCommonSetupEvent event) {
+            event.enqueueWork(() -> {
+                AppleWoodRebarked.commonSetup();
             });
         }
 

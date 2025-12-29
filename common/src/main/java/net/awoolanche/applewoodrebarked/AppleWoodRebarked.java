@@ -1,6 +1,6 @@
 package net.awoolanche.applewoodrebarked;
 
-import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
+
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
@@ -8,7 +8,10 @@ import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
+import net.satisfy.vinery.core.registry.ObjectRegistry;
 
+import dev.architectury.hooks.item.tool.AxeItemHooks;
+import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
@@ -32,6 +35,11 @@ public final class AppleWoodRebarked {
         ModTabs.init();
         ModBlockEntities.init();
 
+    }
+
+    public static void commonSetup() {
+            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_LOG.get(), ModBlocks.STRIPPED_APPLE_LOG.get());
+            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_WOOD.get(), ModBlocks.STRIPPED_APPLE_WOOD.get());
     }
 
     public static void registerBlockEntityRenderers() {

@@ -13,5 +13,6 @@ public final class AppleWoodRebarkedFabric implements ModInitializer {
 
         // Run our common setup.
         AppleWoodRebarked.init();
+        AppleWoodRebarked.commonSetup();
     }
 }
