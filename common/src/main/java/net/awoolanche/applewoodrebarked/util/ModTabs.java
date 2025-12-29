@@ -41,6 +41,9 @@ public class ModTabs {
                 out.accept(ModItems.APPLE_CHEST_BOAT.get());
 
                 out.accept(ModBlocks.APPLE_CHAIR.get());
+                out.accept(ModBlocks.APPLE_BEAM.get());
+                out.accept(ModBlocks.APPLE_TABLE.get());
+                out.accept(ModBlocks.APPLE_BIG_TABLE.get());
 
 
                 // External mod items

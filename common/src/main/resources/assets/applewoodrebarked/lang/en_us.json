@@ -23,6 +23,11 @@
     "block.applewoodrebarked.apple_pressure_plate": "Apple Pressure Plate",
     "block.applewoodrebarked.apple_trapdoor": "Apple Trapdoor",
     "block.applewoodrebarked.apple_sign": "Apple Sign",
-    "block.applewoodrebarked.apple_hanging_sign": "Apple Hanging Sign"
+    "block.applewoodrebarked.apple_hanging_sign": "Apple Hanging Sign",
+    "block.applewoodrebarked.apple_chair": "Apple Chair",
+    "block.applewoodrebarked.apple_beam": "Apple Beam",
+    "block.applewoodrebarked.apple_table": "Apple Table",
+    "block.applewoodrebarked.apple_big_table": "Big Apple Table"
+
 
 }

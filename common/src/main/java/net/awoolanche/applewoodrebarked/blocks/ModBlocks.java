@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.blocks;
 
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
+import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.vinery.core.block.*;
 
 import dev.architectury.registry.registries.DeferredRegister;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.satisfy.vinery.core.registry.ObjectRegistry;
 
 import java.util.function.Supplier;
 
@@ -33,7 +35,6 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> APPLE_FENCE_GATE = registerWithItem("apple_fence_gate", () -> new FenceGateBlock(ModWoodType.APPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)));
     public static final RegistrySupplier<Block> APPLE_BUTTON = registerWithItem("apple_button", () -> new ButtonBlock(ModWoodType.APPLE.setType(), 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
     public static final RegistrySupplier<Block> APPLE_PRESSURE_PLATE = registerWithItem("apple_pressure_plate", () -> new PressurePlateBlock(ModWoodType.APPLE.setType(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)));
-
     public static final RegistrySupplier<Block> APPLE_SIGN = registerWithoutItem("apple_sign", () -> new AppleStandingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN), ModWoodType.APPLE));
     public static final RegistrySupplier<Block> APPLE_WALL_SIGN = registerWithoutItem("apple_wall_sign", () -> new AppleWallSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN), ModWoodType.APPLE));
     public static final RegistrySupplier<Block> APPLE_HANGING_SIGN = registerWithoutItem("apple_hanging_sign", () -> new AppleCeilingHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN), ModWoodType.APPLE));
@@ -41,7 +42,9 @@ public class ModBlocks {
 
 
     public static final RegistrySupplier<Block> APPLE_CHAIR = registerWithItem("apple_chair", () -> new ChairBlock(BlockBehaviour.Properties.of().strength(1.5F)));
-
+    public static final RegistrySupplier<Block> APPLE_BEAM = registerWithItem("apple_beam", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final RegistrySupplier<Block> APPLE_TABLE = registerWithItem("apple_table", () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final RegistrySupplier<Block> APPLE_BIG_TABLE = registerWithItem("apple_big_table", () -> new BigTableBlock(BlockBehaviour.Properties.of().strength(2.0F, 2.0F).pushReaction(PushReaction.IGNORE)));
 
 
     // Initialization
@@ -50,10 +53,6 @@ public class ModBlocks {
     }
 
     // Registries
-    /*
-    public static RegistrySupplier<Block> registerBlock(String name, Supplier<Block> block) {
-        return BLOCKS.register(ResourceLocation.fromNamespaceAndPath("applewoodrebarked", name), block);
-    }*/
 
     public static <T extends Block> RegistrySupplier<T> registerWithItem(String name, Supplier<T> blockSupplier) {
         RegistrySupplier<T> block = BLOCKS.register(name, blockSupplier);
