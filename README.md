@@ -8,7 +8,7 @@ To-do list:
 - [x] Log texture swap
 - [x] Log stripping
 - [ ] Beam
-- [ ] Chair
+- [x] Chair
 - [ ] Tables
 - [ ] Cabinet
 - [ ] Drawer
