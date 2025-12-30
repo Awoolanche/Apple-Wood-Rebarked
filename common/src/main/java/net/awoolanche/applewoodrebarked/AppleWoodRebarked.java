@@ -10,6 +10,9 @@ import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
 import net.minecraft.world.level.block.Block;
 import net.satisfy.vinery.client.render.block.LatticeRenderer;
+import net.satisfy.vinery.client.render.block.storage.ShelfRenderer;
+import net.satisfy.vinery.client.render.block.storage.StorageBlockEntityRenderer;
+import net.satisfy.vinery.client.render.block.storage.StorageTypeRenderer;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
 
 import dev.architectury.hooks.item.tool.AxeItemHooks;
@@ -47,7 +50,6 @@ public final class AppleWoodRebarked {
 
     public static void registerTexture(Block block, ResourceLocation texture) {
         try {
-            // Force Vinery to initialize the map if it hasn't yet
             Method getMapMethod = LatticeRenderer.class.getDeclaredMethod("getTextureMap");
             getMapMethod.setAccessible(true);
             Map<Block, ResourceLocation> textureMap = (Map<Block, ResourceLocation>) getMapMethod.invoke(null);

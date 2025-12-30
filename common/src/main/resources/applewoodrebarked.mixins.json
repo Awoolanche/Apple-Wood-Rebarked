@@ -7,7 +7,8 @@
   ],
   "mixins": [
     "BlockEntityTypeMixin",
-    "LatticeRendererMixin"
+    "LatticeRendererMixin",
+    "StorageTypeRegistryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

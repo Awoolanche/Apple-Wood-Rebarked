@@ -2,6 +2,6 @@
 	"parent": "vinery:block/template_lattice",
 	"textures": {
 		"0": "applewoodrebarked:block/apple_lattice",
-		"particle": "applewoodrebarked:block/apple_lattice"
+		"particle": "applewoodrebarked:block/stripped_apple_log"
 	}
 }

@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "applewoodrebarked:block/apple_big_table",
-		"1": "applewoodrebarked:block/stripped_apple_log_side",
+		"1": "applewoodrebarked:block/stripped_apple_log",
 		"2": "applewoodrebarked:block/apple_big_table_side",
 		"particle": "applewoodrebarked:block/apple_big_table"
 	},

@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "applewoodrebarked:block/apple_big_table",
 		"1": "applewoodrebarked:block/apple_big_table_side",
-		"2": "applewoodrebarked:block/stripped_apple_log_side",
+		"2": "applewoodrebarked:block/stripped_apple_log",
 		"particle": "applewoodrebarked:block/apple_big_table"
 	},
 	"elements": [

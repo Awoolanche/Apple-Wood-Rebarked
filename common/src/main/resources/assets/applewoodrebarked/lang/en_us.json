@@ -28,7 +28,13 @@
     "block.applewoodrebarked.apple_beam": "Apple Beam",
     "block.applewoodrebarked.apple_table": "Apple Table",
     "block.applewoodrebarked.apple_big_table": "Big Apple Table",
-    "block.applewoodrebarked.apple_lattice": "Apple Lattice"
-
-
+    "block.applewoodrebarked.apple_lattice": "Apple Lattice",
+    "block.applewoodrebarked.apple_shelf": "Apple Shelf",
+    "block.applewoodrebarked.apple_cabinet": "Apple Cabinet",
+    "block.applewoodrebarked.apple_drawer": "Apple Drawer",
+    "block.applewoodrebarked.apple_wine_rack_big": "Big Apple Wine Bottle Storage",
+    "block.applewoodrebarked.apple_wine_rack_mid": "Apple Wine Rack",
+    "block.applewoodrebarked.apple_wine_rack_small": "Small Apple Wine Bottle Storage",
+    "block.applewoodrebarked.apple_crate": "Apple Crate",
+    "block.applewoodrebarked.cherry_crate": "Cherry Crate"
 }
