@@ -44,6 +44,7 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_BEAM.get());
                 out.accept(ModBlocks.APPLE_TABLE.get());
                 out.accept(ModBlocks.APPLE_BIG_TABLE.get());
+                out.accept(ModBlocks.APPLE_LATTICE.get());
 
 
                 // External mod items

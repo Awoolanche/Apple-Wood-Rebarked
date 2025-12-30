@@ -8,6 +8,8 @@ import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
+import net.minecraft.world.level.block.Block;
+import net.satisfy.vinery.client.render.block.LatticeRenderer;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
 
 import dev.architectury.hooks.item.tool.AxeItemHooks;
@@ -16,6 +18,12 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
+import static net.awoolanche.applewoodrebarked.blocks.ModBlocks.APPLE_LATTICE;
 
 public final class AppleWoodRebarked {
     public static final String MOD_ID = "applewoodrebarked";
@@ -35,6 +43,22 @@ public final class AppleWoodRebarked {
         ModTabs.init();
         ModBlockEntities.init();
 
+    }
+
+    public static void registerTexture(Block block, ResourceLocation texture) {
+        try {
+            // Force Vinery to initialize the map if it hasn't yet
+            Method getMapMethod = LatticeRenderer.class.getDeclaredMethod("getTextureMap");
+            getMapMethod.setAccessible(true);
+            Map<Block, ResourceLocation> textureMap = (Map<Block, ResourceLocation>) getMapMethod.invoke(null);
+
+            if (textureMap != null) {
+                textureMap.put(block, texture);
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to inject Apple Lattice texture into Vinery Renderer!");
+            e.printStackTrace();
+        }
     }
 
     public static void commonSetup() {

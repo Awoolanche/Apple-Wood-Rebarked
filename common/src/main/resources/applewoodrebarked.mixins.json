@@ -6,6 +6,8 @@
   "client": [
   ],
   "mixins": [
+    "BlockEntityTypeMixin",
+    "LatticeRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
