@@ -12,8 +12,8 @@ To-do list:
 - [x] Tables
 - [ ] Cabinet
 - [ ] Drawer
-- [ ] Shelf
-- [ ] Lattice
+- [x] Shelf
+- [x] Lattice
 - [ ] Wine racks
 - [ ] Port slingshot
 - [ ] Fruit crates
