@@ -47,6 +47,7 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> APPLE_BIG_TABLE = registerWithItem("apple_big_table", () -> new BigTableBlock(BlockBehaviour.Properties.of().strength(2.0F, 2.0F).pushReaction(PushReaction.IGNORE)));
     public static final RegistrySupplier<Block> APPLE_LATTICE = registerWithItem("apple_lattice", () -> new LatticeBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(Blocks.OAK_PLANKS.defaultBlockState().getSoundType()).noOcclusion()/*.isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)*/));
     public static final RegistrySupplier<Block> APPLE_SHELF = registerWithItem("apple_shelf", () -> new ShelfBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD).noOcclusion()));
+    public static final RegistrySupplier<Block> APPLE_BARREL = registerWithItem("apple_barrel", () -> new AppleBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
 
 
 

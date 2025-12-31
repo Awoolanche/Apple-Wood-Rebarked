@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"bottom": "applewoodrebarked:block/apple_trapdoor",
+		"side": "applewoodrebarked:block/apple_table_middle",
+		"top": "applewoodrebarked:block/apple_barrel_top",
+		"particle": "applewoodrebarked:block/apple_table_middle"
+	}
+}
