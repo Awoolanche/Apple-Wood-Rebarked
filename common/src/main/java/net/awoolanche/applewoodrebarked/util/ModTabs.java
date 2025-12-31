@@ -53,6 +53,8 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_WINE_RACK_SMALL.get());
                 out.accept(ModBlocks.APPLE_WINE_RACK_BIG.get());
 
+                out.accept(ModBlocks.APPLE_FLOORBOARD.get());
+
 
                 // External mod items
                 addExternalItem(out, "vinery", "apple_tree_sapling");
