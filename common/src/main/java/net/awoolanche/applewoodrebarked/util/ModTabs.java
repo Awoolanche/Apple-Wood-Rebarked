@@ -49,6 +49,9 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_BARREL.get());
                 out.accept(ModBlocks.APPLE_CABINET.get());
                 out.accept(ModBlocks.APPLE_DRAWER.get());
+                out.accept(ModBlocks.APPLE_WINE_RACK_MID.get());
+                out.accept(ModBlocks.APPLE_WINE_RACK_SMALL.get());
+                out.accept(ModBlocks.APPLE_WINE_RACK_BIG.get());
 
 
                 // External mod items

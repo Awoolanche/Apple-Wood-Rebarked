@@ -1,0 +1,9 @@
+{
+	"parent": "vinery:block/template_wine_rack_2",
+	"textures": {
+		"top": "applewoodrebarked:block/apple_cabinet_top",
+		"side": "applewoodrebarked:block/apple_drawer_side",
+		"bottom": "applewoodrebarked:block/apple_cabinet_top",
+		"particle": "applewoodrebarked:block/apple_cabinet_top"
+	}
+}
