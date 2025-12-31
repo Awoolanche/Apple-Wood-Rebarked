@@ -1,5 +1,7 @@
 package net.awoolanche.applewoodrebarked.entities;
 
+import net.awoolanche.applewoodrebarked.util.ModAmmoTooltip;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -7,6 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -83,10 +86,11 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
         Level level = this.level();
         Entity target = entityHitResult.getEntity();
         ItemStack ammo = this.getItem();
-        float damage = 0f;
+        float damage = ModAmmoTooltip.getDamage(ammo);
         boolean setOnFire = false;
 
         if (ammo.is(Items.CLAY_BALL)) damage = 2f;
+        else if (ammo.is(Items.FLINT)) damage = 4f;
         else if (ammo.is(Items.FIRE_CHARGE)) { damage = 5f; setOnFire = true; }
         else if (ammo.is(Items.SLIME_BALL)) damage = 1f;
 
@@ -100,6 +104,30 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
         }
 
         if (setOnFire) target.igniteForSeconds(5);
+
+        if (ammo.is(Items.CHORUS_FRUIT) && target instanceof LivingEntity livingTarget) {
+            if (!level.isClientSide) {
+                double x = livingTarget.getX();
+                double y = livingTarget.getY();
+                double z = livingTarget.getZ();
+
+                for (int i = 0; i < 16; ++i) {
+                    double targetX = x + (livingTarget.getRandom().nextDouble() - 0.5) * 16.0;
+                    double targetY = Mth.clamp(y + (double)(livingTarget.getRandom().nextInt(16) - 8), (double)level.getMinBuildHeight(), (double)(level.getMinBuildHeight() + ((net.minecraft.server.level.ServerLevel)level).getLogicalHeight() - 1));
+                    double targetZ = z + (livingTarget.getRandom().nextDouble() - 0.5) * 16.0;
+
+                    if (livingTarget.isPassenger()) {
+                        livingTarget.stopRiding();
+                    }
+
+                    if (livingTarget.randomTeleport(targetX, targetY, targetZ, true)) {
+                        level.playSound(null, x, y, z, SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                        livingTarget.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
+                        break;
+                    }
+                }
+            }
+        }
 
         if (ammo.is(Items.SLIME_BALL) && !hasBounced) {
             this.setDeltaMovement(this.getDeltaMovement().scale(-0.8));
@@ -181,8 +209,12 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
             level.playSound(null, x, y, z, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.random.nextFloat() * 0.4F + 0.8F);
         } else if (ammo.is(Items.CLAY_BALL)) {
             level.playSound(null, x, y, z, SoundEvents.SLIME_BLOCK_FALL, SoundSource.NEUTRAL, 0.5F, 0.5F + level.random.nextFloat() * 0.4F);
+        } else if (ammo.is(Items.FLINT)) {
+            level.playSound(null, x, y, z, SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.NEUTRAL, 0.5F, 1.5F);
         } else if (ammo.is(Items.SNOWBALL)) {
             level.playSound(null, x, y, z, SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 1.0F);
+        } else if (ammo.is(Items.CHORUS_FRUIT)) {
+            level.playSound(null, x, y, z, SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.NEUTRAL, 0.5F, 1.2F);
         }
     }
 }

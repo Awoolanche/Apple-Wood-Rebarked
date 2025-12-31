@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.items;
 
 import net.awoolanche.applewoodrebarked.entities.SlingshotProjectileEntity;
+import net.awoolanche.applewoodrebarked.util.ModAmmoTooltip;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -11,9 +12,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-
+import java.util.List;
 import java.util.function.Predicate;
+
+import net.minecraft.network.chat.Component;
 
 public class SlingshotItem extends Item {
 
@@ -21,8 +25,10 @@ public class SlingshotItem extends Item {
                     stack.is(Items.EGG) ||
                     stack.is(Items.SNOWBALL) ||
                     stack.is(Items.CLAY_BALL) ||
+                    stack.is(Items.FLINT) ||
                     stack.is(Items.SLIME_BALL) ||
-                    stack.is(Items.FIRE_CHARGE);
+                    stack.is(Items.FIRE_CHARGE) ||
+                    stack.is(Items.CHORUS_FRUIT);
 
     public SlingshotItem(Properties properties) {
         super(properties);
@@ -45,6 +51,16 @@ public class SlingshotItem extends Item {
 
         player.startUsingItem(hand);
         return InteractionResultHolder.consume(itemStack);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        net.minecraft.client.player.LocalPlayer player = net.minecraft.client.Minecraft.getInstance().player;
+        if (player != null) {
+            ItemStack ammo = findAmmo(player);
+            ModAmmoTooltip.appendTooltip(ammo, tooltip, player.getAbilities().instabuild);
+        }
+        super.appendHoverText(stack, context, tooltip, flag);
     }
 
     @Override
@@ -101,4 +117,5 @@ public class SlingshotItem extends Item {
         if (f > 1.0F) f = 1.0F;
         return f;
     }
+
 }
