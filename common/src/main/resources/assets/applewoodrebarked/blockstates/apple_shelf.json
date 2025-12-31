@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "applewoodrebarked:block/apple_shelf",
+      "y": 90
+    },  
+    "facing=north": {
+      "model": "applewoodrebarked:block/apple_shelf"
+    },
+    "facing=south": {
+      "model": "applewoodrebarked:block/apple_shelf",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "applewoodrebarked:block/apple_shelf",
+      "y": 270
+    }
+  }
+}
