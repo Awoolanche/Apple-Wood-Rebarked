@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
+import net.satisfy.vinery.core.registry.SoundEventRegistry;
 
 import java.util.function.Supplier;
 
@@ -48,6 +49,8 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> APPLE_LATTICE = registerWithItem("apple_lattice", () -> new LatticeBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(Blocks.OAK_PLANKS.defaultBlockState().getSoundType()).noOcclusion()/*.isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)*/));
     public static final RegistrySupplier<Block> APPLE_SHELF = registerWithItem("apple_shelf", () -> new ShelfBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistrySupplier<Block> APPLE_BARREL = registerWithItem("apple_barrel", () -> new AppleBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
+    public static final RegistrySupplier<Block> APPLE_CABINET = registerWithItem("apple_cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundEventRegistry.CABINET_OPEN.get(), SoundEventRegistry.CABINET_CLOSE.get()));
+    public static final RegistrySupplier<Block> APPLE_DRAWER = registerWithItem("apple_drawer", () -> new CabinetBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundEventRegistry.DRAWER_OPEN.get(), SoundEventRegistry.DRAWER_CLOSE.get()));
 
 
 

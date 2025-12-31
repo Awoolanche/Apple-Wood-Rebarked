@@ -47,6 +47,8 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_LATTICE.get());
                 out.accept(ModBlocks.APPLE_SHELF.get());
                 out.accept(ModBlocks.APPLE_BARREL.get());
+                out.accept(ModBlocks.APPLE_CABINET.get());
+                out.accept(ModBlocks.APPLE_DRAWER.get());
 
 
                 // External mod items
