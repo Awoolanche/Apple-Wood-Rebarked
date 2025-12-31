@@ -16,7 +16,7 @@ To-do list:
 - [x] Lattice
 - [x] Wine racks
 - [x] Floorboard
-- [ ] Port slingshot
+- [x] Port slingshot
 - [ ] Fruit crates
 - [ ] Custom wine
 - [ ] Cowboy hat
@@ -25,7 +25,9 @@ To-do list:
 - [ ] Fix fences not connecting
 
 Slingshot:
-- [ ] Tag-based registry for custom ammo
-- [ ] Chorus fruit
+~~- [ ] Tag-based registry for custom ammo~~
+- [x] Dynamic tooltip
+- [x] Flint
+- [x] Chorus fruit
 - [ ] Splash potions
 - [ ] Enchantments
