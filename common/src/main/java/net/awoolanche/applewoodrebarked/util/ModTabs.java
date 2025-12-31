@@ -54,6 +54,7 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_WINE_RACK_BIG.get());
 
                 out.accept(ModBlocks.APPLE_FLOORBOARD.get());
+                out.accept(ModItems.SLINGSHOT.get());
 
 
                 // External mod items

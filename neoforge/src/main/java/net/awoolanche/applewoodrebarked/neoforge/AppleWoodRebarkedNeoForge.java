@@ -5,6 +5,7 @@
     import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
     import net.awoolanche.applewoodrebarked.entities.ModEntities;
     import net.awoolanche.applewoodrebarked.render.AppleBoatRenderer;
+    import net.awoolanche.applewoodrebarked.util.ModPredicates;
     import net.awoolanche.applewoodrebarked.util.ModWoodType;
 
     import net.minecraft.client.model.BoatModel;
@@ -14,6 +15,7 @@
     import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
     import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
     import net.minecraft.client.renderer.blockentity.SignRenderer;
+    import net.minecraft.client.renderer.entity.ThrownItemRenderer;
     import net.minecraft.resources.ResourceLocation;
     import net.minecraft.world.level.block.state.properties.WoodType;
     import net.neoforged.bus.api.IEventBus;
@@ -37,6 +39,7 @@
 
         public void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
+                ModPredicates.init();
                 WoodType.register(ModWoodType.APPLE);
                 Sheets.addWoodType(ModWoodType.APPLE);
 
@@ -55,6 +58,7 @@
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(ModEntities.APPLE_BOAT.get(), (context) -> new AppleBoatRenderer(context, false));
             event.registerEntityRenderer(ModEntities.APPLE_CHEST_BOAT.get(), (context) -> new AppleBoatRenderer(context, true));
+            event.registerEntityRenderer(ModEntities.SLINGSHOT_PROJECTILE.get(), ThrownItemRenderer::new);
         }
 
         @SubscribeEvent

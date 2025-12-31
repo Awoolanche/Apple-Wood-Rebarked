@@ -1,13 +1,16 @@
 package net.awoolanche.applewoodrebarked;
 
 
+import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
+import net.awoolanche.applewoodrebarked.util.ModPredicates;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.level.block.Block;
 import net.satisfy.vinery.client.render.block.LatticeRenderer;
 import net.satisfy.vinery.client.render.block.storage.ShelfRenderer;

@@ -6,6 +6,7 @@ import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.render.AppleBoatRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
+import net.awoolanche.applewoodrebarked.util.ModPredicates;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 
@@ -16,6 +17,7 @@ import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 
@@ -23,11 +25,13 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        ModPredicates.init();
         tryAddWoodType(ModWoodType.APPLE);
         registerBoatModels();
 
         EntityRendererRegistry.register(ModEntities.APPLE_BOAT.get(), (context) -> new AppleBoatRenderer(context, false));
         EntityRendererRegistry.register(ModEntities.APPLE_CHEST_BOAT.get(), (context) -> new AppleBoatRenderer(context, true));
+        EntityRendererRegistry.register(ModEntities.SLINGSHOT_PROJECTILE.get(), ThrownItemRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.APPLE_SIGN.get(), AppleSignRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.APPLE_HANGING_SIGN.get(), AppleHangingSignRenderer::new);
     }

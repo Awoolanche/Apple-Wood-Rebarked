@@ -8,7 +8,10 @@
   "mixins": [
     "BlockEntityTypeMixin",
     "LatticeRendererMixin",
-    "StorageTypeRegistryMixin"
+    "StorageTypeRegistryMixin",
+    "AbstractClientPlayerMixin",
+    "ItemInHandRendererMixin",
+    "ProjectileEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

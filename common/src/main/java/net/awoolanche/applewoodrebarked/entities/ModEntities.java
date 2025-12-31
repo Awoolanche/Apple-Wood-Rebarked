@@ -16,6 +16,7 @@ public class ModEntities {
 
     public static final Supplier<EntityType<AppleBoatEntity>> APPLE_BOAT = PlatformHelper.registerBoatType("apple_boat", AppleBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
     public static final Supplier<EntityType<AppleChestBoatEntity>> APPLE_CHEST_BOAT = PlatformHelper.registerBoatType("apple_chest_boat", AppleChestBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
+    public static final RegistrySupplier<EntityType<SlingshotProjectileEntity>> SLINGSHOT_PROJECTILE = ENTITY_TYPES.register("slingshot_projectile", () -> EntityType.Builder.<SlingshotProjectileEntity>of(SlingshotProjectileEntity::new, MobCategory.MISC).sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10).build("slingshot_projectile"));
 
     public static <T extends EntityType<?>> RegistrySupplier<T> registerEntity(final String path, final Supplier<T> type) {
         return ENTITY_TYPES.register(AppleWoodRebarked.identifier(path), type);

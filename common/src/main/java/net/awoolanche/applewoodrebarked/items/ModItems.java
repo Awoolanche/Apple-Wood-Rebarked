@@ -25,7 +25,7 @@ public class ModItems {
     public static final RegistrySupplier<Item> APPLE_HANGING_SIGN_ITEM = ITEMS.register("apple_hanging_sign", () -> new HangingSignItem(APPLE_HANGING_SIGN.get(), APPLE_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> APPLE_BOAT = ITEMS.register("apple_boat", () -> new AppleBoatItem(false, AppleBoatEntity.Type.APPLE, new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> APPLE_CHEST_BOAT = ITEMS.register("apple_chest_boat", () -> new AppleBoatItem(true, AppleBoatEntity.Type.APPLE, new Item.Properties().stacksTo(1)));
-
+    public static final RegistrySupplier<Item> SLINGSHOT = registerItem("slingshot", () -> new SlingshotItem(new Item.Properties().durability(128).stacksTo(1)));
 
     public static void init() {
         ITEMS.register();
