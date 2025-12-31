@@ -10,11 +10,12 @@ To-do list:
 - [x] Beam
 - [x] Chair
 - [x] Tables
-- [ ] Cabinet
-- [ ] Drawer
+- [x] Cabinet
+- [x] Drawer
 - [x] Shelf
 - [x] Lattice
-- [ ] Wine racks
+- [x] Wine racks
+- [x] Floorboard
 - [ ] Port slingshot
 - [ ] Fruit crates
 - [ ] Custom wine
