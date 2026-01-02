@@ -1,5 +1,6 @@
 package net.awoolanche.applewoodrebarked.util;
 
+import dev.architectury.platform.Platform;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 
@@ -12,18 +13,24 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.satisfy.vinery.core.registry.ObjectRegistry;
+
+import java.util.List;
+import java.util.function.Supplier;
 
 
 public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create("applewoodrebarked", Registries.CREATIVE_MODE_TAB);
 
     public static final RegistrySupplier<CreativeModeTab> APPLE_WOOD_REBARKED_TAB = TABS.register("apple_wood_rebarked_tab", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-            .icon(() -> new ItemStack(ModItems.TEST_ITEM.get()))
+            .icon(() -> new ItemStack(ObjectRegistry.APPLE_TREE_SAPLING.get()))
             .title(Component.translatable("itemgroup.applewoodrebarked.apple_wood_rebarked_tab"))
             .displayItems((parameters, out) -> {
 
+/*
                 out.accept(ModItems.TEST_ITEM.get());
                 out.accept(ModBlocks.TEST_BLOCK.get());
+*/
                 out.accept(ModBlocks.APPLE_PLANKS.get());
                 out.accept(ModBlocks.APPLE_STAIRS.get());
                 out.accept(ModBlocks.APPLE_SLAB.get());
@@ -55,7 +62,24 @@ public class ModTabs {
 
                 out.accept(ModBlocks.APPLE_FLOORBOARD.get());
                 out.accept(ModItems.SLINGSHOT.get());
+                out.accept(ModBlocks.APPLE_CRATE.get());
+                out.accept(ModBlocks.CHERRY_CRATE.get());
+                out.accept(ModBlocks.RED_GRAPE_CRATE.get());
+                out.accept(ModBlocks.WHITE_GRAPE_CRATE.get());
 
+                // F&C Compatibility
+                if (Platform.isModLoaded("farm_and_charm") && ModBlocks.TOMATO_CRATE != null) {
+                    out.accept(ModBlocks.TOMATO_CRATE.get());
+                    out.accept(ModBlocks.POTATO_CRATE.get());
+                    out.accept(ModBlocks.CARROT_CRATE.get());
+                    out.accept(ModBlocks.LETTUCE_CRATE.get());
+                    out.accept(ModBlocks.STRAWBERRY_CRATE.get());
+                    out.accept(ModBlocks.BEETROOT_CRATE.get());
+                    out.accept(ModBlocks.ONION_CRATE.get());
+                    out.accept(ModBlocks.CORN_CRATE.get());
+                    out.accept(ModBlocks.OAT_CRATE.get());
+
+                }
 
                 // External mod items
                 addExternalItem(out, "vinery", "apple_tree_sapling");

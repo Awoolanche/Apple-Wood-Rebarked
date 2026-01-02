@@ -1,5 +1,6 @@
 package net.awoolanche.applewoodrebarked.blocks;
 
+import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
 import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.vinery.core.block.*;
@@ -16,8 +17,19 @@ import net.satisfy.vinery.core.registry.SoundEventRegistry;
 import java.util.function.Supplier;
 
 import static net.awoolanche.applewoodrebarked.items.ModItems.ITEMS;
+import static net.minecraft.world.item.Items.registerBlock;
 
 public class ModBlocks {
+
+    public static RegistrySupplier<Block> TOMATO_CRATE;
+    public static RegistrySupplier<Block> POTATO_CRATE;
+    public static RegistrySupplier<Block> CARROT_CRATE;
+    public static RegistrySupplier<Block> BEETROOT_CRATE;
+    public static RegistrySupplier<Block> CORN_CRATE;
+    public static RegistrySupplier<Block> STRAWBERRY_CRATE;
+    public static RegistrySupplier<Block> OAT_CRATE;
+    public static RegistrySupplier<Block> ONION_CRATE;
+    public static RegistrySupplier<Block> LETTUCE_CRATE;
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create("applewoodrebarked", Registries.BLOCK);
 
@@ -55,6 +67,21 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> APPLE_WINE_RACK_MID = registerWithItem("apple_wine_rack_mid", () -> new BigBottleStorageBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD).noOcclusion()));
 
     public static final RegistrySupplier<Block> APPLE_FLOORBOARD = registerWithItem("apple_floorboard", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final RegistrySupplier<Block> APPLE_CRATE = registerWithItem("apple_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final RegistrySupplier<Block> CHERRY_CRATE = registerWithItem("cherry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final RegistrySupplier<Block> RED_GRAPE_CRATE = registerWithItem("red_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final RegistrySupplier<Block> WHITE_GRAPE_CRATE = registerWithItem("white_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+
+    // F&C Compatibility
+    static { if (ModCompat.FARM_AND_CHARM) { TOMATO_CRATE = registerWithItem("tomato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { POTATO_CRATE = registerWithItem("potato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { CARROT_CRATE = registerWithItem("carrot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { BEETROOT_CRATE = registerWithItem("beetroot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { CORN_CRATE = registerWithItem("corn_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { STRAWBERRY_CRATE = registerWithItem("strawberry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { OAT_CRATE = registerWithItem("oat_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static { if (ModCompat.FARM_AND_CHARM) { LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
 
 
 
