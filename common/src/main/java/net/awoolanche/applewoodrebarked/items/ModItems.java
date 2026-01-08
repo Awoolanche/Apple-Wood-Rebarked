@@ -5,6 +5,7 @@ import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.HangingSignItem;

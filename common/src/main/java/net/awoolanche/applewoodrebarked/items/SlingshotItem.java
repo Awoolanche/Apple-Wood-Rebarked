@@ -40,6 +40,12 @@ public class SlingshotItem extends Item {
     }
 
     @Override
+    public int getEnchantmentValue() { return 15; }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) { return true; }
+
+    @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
