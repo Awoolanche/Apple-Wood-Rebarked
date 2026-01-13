@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.mixin;
 
 import net.awoolanche.applewoodrebarked.items.ModItems;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.util.Mth;

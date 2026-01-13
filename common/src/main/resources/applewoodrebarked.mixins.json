@@ -4,13 +4,13 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "AbstractClientPlayerMixin",
+    "ItemInHandRendererMixin",
+    "LatticeRendererMixin"
   ],
   "mixins": [
     "BlockEntityTypeMixin",
-    "LatticeRendererMixin",
     "StorageTypeRegistryMixin",
-    "AbstractClientPlayerMixin",
-    "ItemInHandRendererMixin",
     "ProjectileEntityMixin"
   ],
   "injectors": {
