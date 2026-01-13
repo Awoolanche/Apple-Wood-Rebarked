@@ -1,7 +1,7 @@
 package net.awoolanche.applewoodrebarked.items;
 
 import net.awoolanche.applewoodrebarked.entities.SlingshotProjectileEntity;
-import net.awoolanche.applewoodrebarked.util.ModAmmoTooltip;
+import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -40,12 +40,6 @@ public class SlingshotItem extends Item {
     }
 
     @Override
-    public int getEnchantmentValue() { return 15; }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) { return true; }
-
-    @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
@@ -61,13 +55,11 @@ public class SlingshotItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        net.minecraft.client.player.LocalPlayer player = net.minecraft.client.Minecraft.getInstance().player;
-        if (player != null) {
-            ItemStack ammo = findAmmo(player);
-            ModAmmoTooltip.appendTooltip(ammo, tooltip, player.getAbilities().instabuild);
-        }
+        PlatformHelper.appendTooltip(stack, tooltip);
         super.appendHoverText(stack, context, tooltip, flag);
     }
+
+
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity user, int remainingUseTicks) {
@@ -103,7 +95,7 @@ public class SlingshotItem extends Item {
         }
     }
 
-    private ItemStack findAmmo(Player player) {
+    public static ItemStack findAmmo(Player player) {
         if (IS_AMMO.test(player.getOffhandItem())) {
             return player.getOffhandItem();
         }
@@ -116,6 +108,7 @@ public class SlingshotItem extends Item {
         }
         return ItemStack.EMPTY;
     }
+
 
     private float getPowerForTime(int useTime) {
         float f = (float)useTime / 15.0F;
