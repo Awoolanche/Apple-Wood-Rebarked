@@ -18,8 +18,10 @@
     import net.minecraft.client.renderer.entity.ThrownItemRenderer;
     import net.minecraft.resources.ResourceLocation;
     import net.minecraft.world.level.block.state.properties.WoodType;
+    import net.neoforged.api.distmarker.Dist;
     import net.neoforged.bus.api.IEventBus;
     import net.neoforged.bus.api.SubscribeEvent;
+    import net.neoforged.fml.common.EventBusSubscriber;
     import net.neoforged.fml.common.Mod;
     import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
     import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -33,8 +35,6 @@
             AppleWoodRebarked.init();
             modEventBus.addListener(this::onClientSetup);
             modEventBus.addListener(this::commonSetup);
-            modEventBus.addListener(AppleWoodRebarkedNeoForge::registerLayerDefinitions);
-            modEventBus.addListener(AppleWoodRebarkedNeoForge::registerRenderers);
         }
 
         public void onClientSetup(FMLClientSetupEvent event) {
@@ -54,18 +54,23 @@
             });
         }
 
-        @SubscribeEvent
-        public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerEntityRenderer(ModEntities.APPLE_BOAT.get(), (context) -> new AppleBoatRenderer(context, false));
-            event.registerEntityRenderer(ModEntities.APPLE_CHEST_BOAT.get(), (context) -> new AppleBoatRenderer(context, true));
-            event.registerEntityRenderer(ModEntities.SLINGSHOT_PROJECTILE.get(), ThrownItemRenderer::new);
-        }
 
-        @SubscribeEvent
-        public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-            for (AppleBoatEntity.Type type : AppleBoatEntity.Type.values()) {
-                event.registerLayerDefinition(new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AppleWoodRebarked.MOD_ID, type.getModelLocation()), "main"), BoatModel::createBodyModel);
-                event.registerLayerDefinition(new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AppleWoodRebarked.MOD_ID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
+        @EventBusSubscriber(modid = AppleWoodRebarked.MOD_ID, value = Dist.CLIENT)
+        public static class ClientEvents {
+
+            @SubscribeEvent
+            public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+                event.registerEntityRenderer(ModEntities.APPLE_BOAT.get(), (context) -> new AppleBoatRenderer(context, false));
+                event.registerEntityRenderer(ModEntities.APPLE_CHEST_BOAT.get(), (context) -> new AppleBoatRenderer(context, true));
+                event.registerEntityRenderer(ModEntities.SLINGSHOT_PROJECTILE.get(), ThrownItemRenderer::new);
+            }
+
+            @SubscribeEvent
+            public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+                for (AppleBoatEntity.Type type : AppleBoatEntity.Type.values()) {
+                    event.registerLayerDefinition(new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AppleWoodRebarked.MOD_ID, type.getModelLocation()), "main"), BoatModel::createBodyModel);
+                    event.registerLayerDefinition(new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AppleWoodRebarked.MOD_ID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
+                }
             }
         }
     }
