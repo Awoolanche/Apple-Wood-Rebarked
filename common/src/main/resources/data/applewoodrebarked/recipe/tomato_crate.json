@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "P P",
+        "PBP",
+        "PPP"
+    ],
+    "key": {
+        "B": {
+            "item": "vinery:tomato_bag"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:tomato_crate"
+    }
+}

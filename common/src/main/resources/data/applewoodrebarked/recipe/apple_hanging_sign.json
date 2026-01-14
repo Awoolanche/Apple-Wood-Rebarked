@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "hanging_sign",
+    "key": {
+        "#": {
+            "item": "applewoodrebarked:stripped_apple_log"
+        },
+        "X": {
+            "item": "minecraft:chain"
+        }
+    },
+    "pattern": [
+        "X X",
+        "###",
+        "###"
+    ],
+    "result": {
+        "count": 6,
+        "id": "applewoodrebarked:apple_hanging_sign"
+    },
+    "show_notification": true
+}

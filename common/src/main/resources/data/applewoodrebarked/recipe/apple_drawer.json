@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wine_rack",
+    "pattern": [
+        "###",
+        "_B_",
+        "#B#"
+    ],
+    "key": {
+        "#": {
+            "item": "applewoodrebarked:apple_planks"
+        },
+        "_": {
+            "item": "applewoodrebarked:apple_slab"
+        },
+        "B": {
+            "item": "minecraft:barrel"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:apple_drawer"
+    }
+}

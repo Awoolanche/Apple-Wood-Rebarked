@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "boat",
+    "key": {
+        "#": {
+            "item": "applewoodrebarked:apple_planks"
+        }
+    },
+    "pattern": [
+        "# #",
+        "###"
+    ],
+    "result": {
+        "id": "applewoodrebarked:apple_boat"
+    },
+    "show_notification": true
+}

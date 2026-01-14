@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " D ",
+        "SLS",
+        " S "
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:lead"
+        },
+        "S": {
+            "item": "minecraft:stick"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:slingshot"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "P P",
+        "PBP",
+        "PPP"
+    ],
+    "key": {
+        "B": {
+            "item": "vinery:red_grape_bag"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:red_grape_crate"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " ##",
+        "###",
+        "## "
+    ],
+    "key": {
+        "#": {
+            "item": "applewoodrebarked:apple_planks"
+        }
+    },
+    "result": {
+        "count": 4,
+        "id": "applewoodrebarked:apple_floorboard"
+    }
+}

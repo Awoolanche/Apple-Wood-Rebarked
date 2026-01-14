@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "P": {
+            "item": "applewoodrebarked:apple_planks"
+        },
+        "S": {
+            "item": "applewoodrebarked:apple_slab"
+        }
+    },
+    "pattern": [
+        "PSP",
+        "S S",
+        "PSP"
+    ],
+    "result": {
+        "id": "applewoodrebarked:apple_barrel"
+    }
+}
