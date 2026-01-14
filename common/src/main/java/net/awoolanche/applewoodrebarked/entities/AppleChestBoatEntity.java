@@ -61,7 +61,7 @@ public class AppleChestBoatEntity extends ChestBoat {
     }
     @Override
     public @NotNull Item getDropItem() {
-        return this.getWoodType().getItem().get();
+        return this.getWoodType().getChestItem().get();
     }
 
     @Override
