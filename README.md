@@ -17,15 +17,20 @@ To-do list:
 - [x] Wine racks
 - [x] Floorboard
 - [x] Port slingshot
-- [ ] Fruit crates
+- [x] Fruit crates
+
+
+Future updates:
 - [ ] Custom wine
 - [ ] Cowboy hat
-- [ ] Flower crown
+- [ ] Flower crown remake
+- [ ] [Let's Do] furniture compatibility
+- [ ] Burnability
+- [ ] More crates
 
-- [ ] Fix fences not connecting
 
 Slingshot:
-~~- [ ] Tag-based registry for custom ammo~~
+- [ ] ~~Tag-based registry for custom ammo~~ gonna have to think this through
 - [x] Dynamic tooltip
 - [x] Flint
 - [x] Chorus fruit
