@@ -7,6 +7,7 @@ import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
+import net.awoolanche.applewoodrebarked.util.ModFuels;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
 import net.satisfy.vinery.core.registry.EntityTypeRegistry;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
@@ -37,6 +38,8 @@ public final class AppleWoodRebarked {
         ModItems.init();
         ModTabs.init();
         ModBlockEntities.init();
+
+        LifecycleEvent.SETUP.register(ModFuels::init);
 
         LifecycleEvent.SETUP.register(() -> {
                 var vineryLatticeType = EntityTypeRegistry.LATTICE.get();
