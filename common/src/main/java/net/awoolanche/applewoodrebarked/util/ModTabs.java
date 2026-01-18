@@ -31,37 +31,38 @@ public class ModTabs {
                 out.accept(ModItems.TEST_ITEM.get());
                 out.accept(ModBlocks.TEST_BLOCK.get());
 */
-                out.accept(ModBlocks.APPLE_PLANKS.get());
-                out.accept(ModBlocks.APPLE_STAIRS.get());
-                out.accept(ModBlocks.APPLE_SLAB.get());
+
+                addExternalItem(out, "vinery", "apple_log");
+                addExternalItem(out, "vinery", "apple_wood");
                 out.accept(ModBlocks.STRIPPED_APPLE_LOG.get());
                 out.accept(ModBlocks.STRIPPED_APPLE_WOOD.get());
-                out.accept(ModBlocks.APPLE_TRAPDOOR.get());
-                out.accept(ModBlocks.APPLE_DOOR.get());
+                out.accept(ModBlocks.APPLE_BEAM.get());
+                out.accept(ModBlocks.APPLE_PLANKS.get());
+                out.accept(ModBlocks.APPLE_FLOORBOARD.get());
+                out.accept(ModBlocks.APPLE_STAIRS.get());
+                out.accept(ModBlocks.APPLE_SLAB.get());
                 out.accept(ModBlocks.APPLE_FENCE.get());
                 out.accept(ModBlocks.APPLE_FENCE_GATE.get());
-                out.accept(ModBlocks.APPLE_BUTTON.get());
+                out.accept(ModBlocks.APPLE_DOOR.get());
+                out.accept(ModBlocks.APPLE_TRAPDOOR.get());
                 out.accept(ModBlocks.APPLE_PRESSURE_PLATE.get());
+                out.accept(ModBlocks.APPLE_BUTTON.get());
                 out.accept(ModItems.APPLE_SIGN_ITEM.get());
                 out.accept(ModItems.APPLE_HANGING_SIGN_ITEM.get());
                 out.accept(ModItems.APPLE_BOAT.get());
                 out.accept(ModItems.APPLE_CHEST_BOAT.get());
-
-                out.accept(ModBlocks.APPLE_CHAIR.get());
-                out.accept(ModBlocks.APPLE_BEAM.get());
-                out.accept(ModBlocks.APPLE_TABLE.get());
                 out.accept(ModBlocks.APPLE_BIG_TABLE.get());
-                out.accept(ModBlocks.APPLE_LATTICE.get());
                 out.accept(ModBlocks.APPLE_SHELF.get());
-                out.accept(ModBlocks.APPLE_BARREL.get());
-                out.accept(ModBlocks.APPLE_CABINET.get());
                 out.accept(ModBlocks.APPLE_DRAWER.get());
+                out.accept(ModBlocks.APPLE_CABINET.get());
+                out.accept(ModBlocks.APPLE_TABLE.get());
+                out.accept(ModBlocks.APPLE_CHAIR.get());
+                out.accept(ModBlocks.APPLE_LATTICE.get());
+                out.accept(ModBlocks.APPLE_BARREL.get());
                 out.accept(ModBlocks.APPLE_WINE_RACK_MID.get());
                 out.accept(ModBlocks.APPLE_WINE_RACK_SMALL.get());
                 out.accept(ModBlocks.APPLE_WINE_RACK_BIG.get());
 
-                out.accept(ModBlocks.APPLE_FLOORBOARD.get());
-                out.accept(ModItems.SLINGSHOT.get());
                 out.accept(ModBlocks.APPLE_CRATE.get());
                 out.accept(ModBlocks.CHERRY_CRATE.get());
                 out.accept(ModBlocks.RED_GRAPE_CRATE.get());
@@ -78,13 +79,13 @@ public class ModTabs {
                     out.accept(ModBlocks.ONION_CRATE.get());
                     out.accept(ModBlocks.CORN_CRATE.get());
 
+                    out.accept(ModItems.SLINGSHOT.get());
                 }
 
                 // External mod items
                 addExternalItem(out, "vinery", "apple_tree_sapling");
                 addExternalItem(out, "vinery", "apple_leaves");
-                addExternalItem(out, "vinery", "apple_log");
-                addExternalItem(out, "vinery", "apple_wood");
+
 
             })
             .build());
