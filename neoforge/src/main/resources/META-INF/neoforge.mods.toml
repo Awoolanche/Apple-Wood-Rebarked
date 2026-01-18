@@ -1,17 +1,27 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT/ARR - see LICENSE file"
 
 [[mods]]
 modId = "applewoodrebarked"
 version = "${version}"
 displayName = "[Let's Do Addon] Apple Wood Rebarked"
-authors = "Me!"
+author = "Awoolanche"
+former_author = "Berksire"
+
 description = '''
-This is an example description! Tell everyone what your mod is about!
+  Do you miss the good, old Apple Wood add-on? Enjoy the rework of Apple Wood with new features, improvements and extended compatibility!
+
+  Caution, this mod is my modding playground to learn and have fun. Things may be added and removed during the development at any time.
+
+  Big thanks to:
+  Satisfy for the work on the [Let's Do] series,
+  Berksire for creating the original Apple Wood add-on,
+  Chaperie for putting up with my stupid questions about modding,
+  YOU for playing!
 '''
-#logoFile = ""
+logoFile = "assets/applewoodrebarked/pack.png"
 
 [[dependencies.applewoodrebarked]]
 modId = "neoforge"

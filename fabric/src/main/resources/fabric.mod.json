@@ -3,16 +3,14 @@
   "id": "applewoodrebarked",
   "version": "${version}",
   "name": "[Let's Do Addon] Apple Wood Rebarked",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "authors": [
-    "Me!"
+  "description": "Do you miss the good, old Apple Wood add-on? Enjoy the rework of Apple Wood with new features, improvements and extended compatibility!\n\nCaution: This mod is my modding playground to learn and have fun. Things may be added and removed during development at any time.\n\nBig thanks to:\n- Satisfy for the work on the [Let's Do] series\n- Berksire for creating the original Apple Wood add-on\n- Chaperie for putting up with my stupid questions about modding\n- YOU for playing!",  "authors": [
+    "Awoolanche"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Awoolanche/Apple-Wood-Rebarked"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/applewoodrebarked/icon.png",
+  "license": "MIT/ARR - See LICENSE file",
+  "icon": "assets/applewoodrebarked/pack.png",
   "environment": "*",
   "entrypoints": {
     "main": [
