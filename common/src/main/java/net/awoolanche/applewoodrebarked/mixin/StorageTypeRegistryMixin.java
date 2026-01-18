@@ -1,7 +1,6 @@
 package net.awoolanche.applewoodrebarked.mixin;
 
 import net.satisfy.vinery.core.registry.StorageTypeRegistry;
-
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -16,13 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Mixin(StorageTypeRegistry.class)
+@Mixin(value = StorageTypeRegistry.class, remap = false)
 public class StorageTypeRegistryMixin {
 
     @Inject(
-            method = "registerBlocks(Ljava/util/Set;)Ljava/util/Set;",
-            at = @At("TAIL"),
-            remap = false
+            method = "registerBlocks",
+            at = @At("TAIL")
     )
     private static void applewoodrebarked$addAppleStorageBlocks(Set<Block> blocks, CallbackInfoReturnable<Set<Block>> cir) {
         applewoodrebarked$addIfPresent(blocks, "apple_shelf");
@@ -32,10 +30,9 @@ public class StorageTypeRegistryMixin {
     }
 
     @Inject(
-            method = "getCabinetBlocks()[Lnet/minecraft/world/level/block/Block;",
+            method = "getCabinetBlocks",
             at = @At("RETURN"),
-            cancellable = true,
-            remap = false
+            cancellable = true
     )
     private static void applewoodrebarked$addAppleCabinets(CallbackInfoReturnable<Block[]> cir) {
         Block[] original = cir.getReturnValue();
@@ -67,6 +64,7 @@ public class StorageTypeRegistryMixin {
 
     @Unique
     private static Block applewoodrebarked$get(String path) {
+        // Safe lookup using the registry to avoid circular dependency issues during init
         return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("applewoodrebarked", path));
     }
 }

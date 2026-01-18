@@ -1,7 +1,9 @@
 package net.awoolanche.applewoodrebarked.blocks;
 
+import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.vinery.core.block.*;
 
@@ -12,8 +14,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.satisfy.vinery.core.registry.EntityTypeRegistry;
+import net.satisfy.vinery.core.registry.ObjectRegistry;
 import net.satisfy.vinery.core.registry.SoundEventRegistry;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 
 import static net.awoolanche.applewoodrebarked.items.ModItems.ITEMS;
@@ -100,5 +106,19 @@ public class ModBlocks {
 
     public static BlockBehaviour.Properties baseProperties(String name) {
         return BlockBehaviour.Properties.of();
+    }
+
+    public static void fixBlockEntityValidBlocks() {
+        BlockEntityType<?> cabinetType = EntityTypeRegistry.CABINET_BLOCK_ENTITY.get();
+        BlockEntityTypeMixin accessor = (BlockEntityTypeMixin) cabinetType;
+
+        Set<Block> currentBlocks = accessor.getValidBlocks();
+
+        Set<Block> newBlocks = new HashSet<>(currentBlocks);
+
+        newBlocks.add(ModBlocks.APPLE_CABINET.get());
+        newBlocks.add(ModBlocks.APPLE_DRAWER.get());
+
+        accessor.setValidBlocks(newBlocks);
     }
 }

@@ -40,6 +40,7 @@ public final class AppleWoodRebarked {
         ModBlockEntities.init();
 
         LifecycleEvent.SETUP.register(ModFuels::init);
+        LifecycleEvent.SETUP.register(ModBlocks::fixBlockEntityValidBlocks);
 
         LifecycleEvent.SETUP.register(() -> {
                 var vineryLatticeType = EntityTypeRegistry.LATTICE.get();
