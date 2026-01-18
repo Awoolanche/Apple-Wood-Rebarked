@@ -68,11 +68,11 @@ public class SlingshotItem extends Item {
         ItemStack ammoStack = findAmmo(player);
         boolean isCreative = player.getAbilities().instabuild;
 
-        if (ammoStack.isEmpty() && !isCreative) return;
+        if (ammoStack.isEmpty()/* && !isCreative*/) return;
 
-        if (ammoStack.isEmpty() && isCreative) {
+/*        if (ammoStack.isEmpty() && isCreative) {
             ammoStack = new ItemStack(Items.STONE);
-        }
+        }*/
 
         int useTime = this.getUseDuration(stack, user) - remainingUseTicks;
         float power = getPowerForTime(useTime);
