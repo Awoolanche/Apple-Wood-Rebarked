@@ -1,6 +1,8 @@
 package net.awoolanche.applewoodrebarked.fabric.client;
 
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
+import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.render.AppleBoatRenderer;
@@ -11,14 +13,19 @@ import net.awoolanche.applewoodrebarked.util.ModWoodType;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+
+import java.util.List;
 
 
 public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
@@ -29,11 +36,39 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         tryAddWoodType(ModWoodType.APPLE);
         registerBoatModels();
 
+
         EntityRendererRegistry.register(ModEntities.APPLE_BOAT.get(), (context) -> new AppleBoatRenderer(context, false));
         EntityRendererRegistry.register(ModEntities.APPLE_CHEST_BOAT.get(), (context) -> new AppleBoatRenderer(context, true));
         EntityRendererRegistry.register(ModEntities.SLINGSHOT_PROJECTILE.get(), ThrownItemRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.APPLE_SIGN.get(), AppleSignRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.APPLE_HANGING_SIGN.get(), AppleHangingSignRenderer::new);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LATTICE.get(), RenderType.cutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LATTICE.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_CRATE.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHERRY_CRATE.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_GRAPE_CRATE.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_GRAPE_CRATE.get(), RenderType.cutout());
+
+        java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.level.block.Block>> fcCrates =
+                java.util.Arrays.asList(
+                        ModBlocks.TOMATO_CRATE,
+                        ModBlocks.POTATO_CRATE,
+                        ModBlocks.CARROT_CRATE,
+                        ModBlocks.BEETROOT_CRATE,
+                        ModBlocks.CORN_CRATE,
+                        ModBlocks.STRAWBERRY_CRATE,
+                        ModBlocks.ONION_CRATE,
+                        ModBlocks.LETTUCE_CRATE
+                );
+
+        for (var crate : fcCrates) {
+            if (crate != null && crate.isPresent()) {
+                BlockRenderLayerMap.INSTANCE.putBlock(crate.get(), RenderType.cutout());
+            }
+        }
     }
 
     private void registerBoatModels() {
