@@ -27,7 +27,6 @@ public class ModBlocks {
     public static RegistrySupplier<Block> BEETROOT_CRATE;
     public static RegistrySupplier<Block> CORN_CRATE;
     public static RegistrySupplier<Block> STRAWBERRY_CRATE;
-    public static RegistrySupplier<Block> OAT_CRATE;
     public static RegistrySupplier<Block> ONION_CRATE;
     public static RegistrySupplier<Block> LETTUCE_CRATE;
 
@@ -79,10 +78,8 @@ public class ModBlocks {
     static { if (ModCompat.FARM_AND_CHARM) { BEETROOT_CRATE = registerWithItem("beetroot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
     static { if (ModCompat.FARM_AND_CHARM) { CORN_CRATE = registerWithItem("corn_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
     static { if (ModCompat.FARM_AND_CHARM) { STRAWBERRY_CRATE = registerWithItem("strawberry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { OAT_CRATE = registerWithItem("oat_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
     static { if (ModCompat.FARM_AND_CHARM) { ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
     static { if (ModCompat.FARM_AND_CHARM) { LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-
 
 
     // Initialization

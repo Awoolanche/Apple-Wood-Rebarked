@@ -77,7 +77,6 @@ public class ModTabs {
                     out.accept(ModBlocks.BEETROOT_CRATE.get());
                     out.accept(ModBlocks.ONION_CRATE.get());
                     out.accept(ModBlocks.CORN_CRATE.get());
-                    out.accept(ModBlocks.OAT_CRATE.get());
 
                 }
 
