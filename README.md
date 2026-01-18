@@ -1,3 +1,5 @@
+Closed beta testing in progress...
+
 To-do list:
 
 
@@ -18,6 +20,7 @@ To-do list:
 - [x] Floorboard
 - [x] Port slingshot
 - [x] Fruit crates
+- [x] Burnability
 
 
 Future updates:
@@ -25,7 +28,7 @@ Future updates:
 - [ ] Cowboy hat
 - [ ] Flower crown remake
 - [ ] [Let's Do] furniture compatibility
-- [ ] Burnability
+
 - [ ] More crates
 
 
