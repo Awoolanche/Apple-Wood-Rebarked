@@ -16,7 +16,7 @@
 Do you miss the good, old Apple Wood add-on? **Apple Wood Rebarked** brings it back better than ever! This mod is a rework designed to bring all the features of its successor into the 1.21.1 version, while improving certain aspects and adding new, exciting content. Enjoy beautiful apple-themed furniture, new tools, decorations and extended compatibility with your favorite [Let's Do] mods.
 
 
-At its current state, Apple Wood Rebarked ports all the blocks and features from the original Apple Wood add-on and adds few features from my other, unreleased projects that were adjusted to fit the overall [Let's Do] aesthetic and vibe. Be aware, that this mod is my playground - things may be added, changed or removed in future releases. Here be dragons.
+At its current state, Apple Wood Rebarked ports all the blocks and features from the original Apple Wood add-on and adds few features from my other, unreleased projects that were adjusted to fit the overall [Let's Do] aesthetic and vibe. Be aware, that this mod is my modding playground - things may be added, changed or removed in future releases. Here be dragons.
 
 ---
 
