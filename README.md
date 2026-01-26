@@ -8,7 +8,6 @@
 
 
 <div align="center">
-  <a href="https://modrinth.com/mod/apple-wood-rebarked">
     <img width="200" height="70" alt="curseforge_badge2_not" src="https://github.com/user-attachments/assets/7e1c4c64-978e-4b0a-8e36-07b0a76c7394" />
   </a>
 
