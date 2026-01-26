@@ -8,9 +8,15 @@
 
 
 <div align="center">
-<img width="200" height="70" alt="curseforge_badge2_not" src="https://github.com/user-attachments/assets/7e1c4c64-978e-4b0a-8e36-07b0a76c7394" />
-<img width="200" height="70" alt="modrinth_badge_not" src="https://github.com/user-attachments/assets/49cc317a-fb9f-4fac-9c45-98c67a2021a7" />
+  <a href="https://modrinth.com/mod/apple-wood-rebarked">
+    <img width="200" height="70" alt="curseforge_badge2_not" src="https://github.com/user-attachments/assets/7e1c4c64-978e-4b0a-8e36-07b0a76c7394" />
+  </a>
+
+  <a href="https://modrinth.com/mod/apple-wood-rebarked">
+    <img width="200" height="70" alt="modrinth_badge_not" src="https://github.com/user-attachments/assets/49cc317a-fb9f-4fac-9c45-98c67a2021a7" />
+  </a>
 </div><br><br><br>
+
 
 
 Do you miss the good, old Apple Wood add-on? **Apple Wood Rebarked** brings it back better than ever! This mod is a rework designed to bring all the features of its successor into the 1.21.1 version, while improving certain aspects and adding new, exciting content. Enjoy beautiful apple-themed furniture, new tools, decorations and extended compatibility with your favorite [Let's Do] mods.
