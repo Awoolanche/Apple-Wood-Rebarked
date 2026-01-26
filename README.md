@@ -12,9 +12,10 @@
   </a>
 
   <a href="https://modrinth.com/mod/apple-wood-rebarked">
-    <img width="200" height="70" alt="modrinth_badge_not" src="https://github.com/user-attachments/assets/49cc317a-fb9f-4fac-9c45-98c67a2021a7" />
+    <img width="200" height="70" alt="modrinth_badge" src="https://github.com/user-attachments/assets/d00b521f-0aa6-4d94-8e53-2af00d3f9e77" />
   </a>
 </div><br><br><br>
+
 
 
 
