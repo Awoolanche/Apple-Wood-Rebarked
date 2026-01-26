@@ -23,12 +23,12 @@ Portions of the code and artistic assets (textures and models) are derived from 
 - These elements are **NOT** covered by the MIT license above and may not be redistributed outside the context of this mod without further permission from the original author.
 
 ### [Let's Do Add-on] Apple Wood
-This project is a spiritual successor and rework of the original **Apple Wood** add-on by **Berksire**.
+This project is a spiritual successor and rework of the original **Apple Wood** add-on by **MissLilitu**.
 - Design concepts and original ideas are credited to the original creator.
 
 ---
 
 ## 3. Modpack Policy
 You are free to include this mod in any modpack, provided that:
-1. Credit is given to **Awoolanche**, **Satisfy**, and **Berksire** in the modpack's credits.
+1. Credit is given to **Awoolanche**, **Satisfy**, and **MissLilitu** in the modpack's credits.
 3. The mod is downloaded from official sources (Modrinth/CurseForge).
