@@ -21,6 +21,9 @@ import org.slf4j.LoggerFactory;
 import java.util.HashSet;
 import java.util.Set;
 
+import static net.awoolanche.applewoodrebarked.blocks.ModBlocks.STRIPPED_APPLE_LOG;
+import static net.awoolanche.applewoodrebarked.blocks.ModBlocks.STRIPPED_APPLE_WOOD;
+
 public final class AppleWoodRebarked {
     public static final String MOD_ID = "applewoodrebarked";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
@@ -55,7 +58,7 @@ public final class AppleWoodRebarked {
     }
 
     public static void commonSetup() {
-            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_LOG.get(), ModBlocks.STRIPPED_APPLE_LOG.get());
-            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_WOOD.get(), ModBlocks.STRIPPED_APPLE_WOOD.get());
+            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_LOG.get(), STRIPPED_APPLE_LOG.get());
+            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_WOOD.get(), STRIPPED_APPLE_WOOD.get());
     }
 }
