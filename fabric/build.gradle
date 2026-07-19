@@ -27,8 +27,6 @@ configurations {
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
-    modRuntimeOnly "me.shedaniel.cloth:cloth-config-fabric:15.0.130"
-
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
 
@@ -38,7 +36,7 @@ dependencies {
     // Vinery. If anyone tells you it's optional, they're wrong.
     modImplementation "maven.modrinth:lets-do-vinery:${project.vinery_version}-fabric"
 
-    modRuntimeOnly "me.shedaniel.cloth:cloth-config-fabric:$rootProject.cloth_config_api_version"
+    modRuntimeOnly "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')

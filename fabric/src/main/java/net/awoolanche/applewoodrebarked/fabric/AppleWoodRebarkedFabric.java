@@ -6,7 +6,9 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 
 import java.util.Optional;
 
@@ -23,10 +25,13 @@ public final class AppleWoodRebarkedFabric implements ModInitializer {
         AppleWoodRebarked.commonSetup();
 
         Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(AppleWoodRebarked.MOD_ID);
-        modContainer.ifPresent(container -> ResourceManagerHelper.registerBuiltinResourcePack(
-                ResourceLocation.fromNamespaceAndPath(AppleWoodRebarked.MOD_ID, "resourcepacks/vinery_overrides"),
-                container,
-                ResourcePackActivationType.ALWAYS_ENABLED
-        ));
+        modContainer.ifPresent(container -> {
+            boolean registered = ResourceManagerHelper.registerBuiltinResourcePack(
+                    ResourceLocation.fromNamespaceAndPath(AppleWoodRebarked.MOD_ID, "vinery_overrides"),
+                    container,
+                    Component.literal("Vinery Overrides"),
+                    ResourcePackActivationType.ALWAYS_ENABLED
+            );
+        });
     }
 }
