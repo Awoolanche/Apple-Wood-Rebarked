@@ -12,7 +12,7 @@ common/run/
 # Fabric
 fabric/.gradle/
 fabric/build/
-fabric/run/
+/fabric/run/
 
 # NeoForge
 neoforge/.gradle/
