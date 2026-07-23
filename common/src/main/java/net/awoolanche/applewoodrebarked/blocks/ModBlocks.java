@@ -91,14 +91,18 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> WHITE_GRAPE_CRATE = registerWithItem("white_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 
     // F&C Compatibility
-    static { if (ModCompat.FARM_AND_CHARM) { TOMATO_CRATE = registerWithItem("tomato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { POTATO_CRATE = registerWithItem("potato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { CARROT_CRATE = registerWithItem("carrot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { BEETROOT_CRATE = registerWithItem("beetroot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { CORN_CRATE = registerWithItem("corn_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { STRAWBERRY_CRATE = registerWithItem("strawberry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
-    static { if (ModCompat.FARM_AND_CHARM) { LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
+    static {
+        if (ModCompat.FARM_AND_CHARM) {
+            TOMATO_CRATE = registerWithItem("tomato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            POTATO_CRATE = registerWithItem("potato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            CARROT_CRATE = registerWithItem("carrot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            BEETROOT_CRATE = registerWithItem("beetroot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            CORN_CRATE = registerWithItem("corn_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            STRAWBERRY_CRATE = registerWithItem("strawberry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+        }
+    }
 
     // Furniture Compatibility
     static {
