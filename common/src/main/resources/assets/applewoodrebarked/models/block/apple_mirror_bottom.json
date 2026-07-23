@@ -1,0 +1,8 @@
+{
+  "parent": "furniture:block/oak_mirror_bottom",
+  "textures": {
+    "0": "applewoodrebarked:block/apple_mirror_bottom",
+    "1": "applewoodrebarked:block/apple_mirror_back",
+    "particle": "applewoodrebarked:block/apple_mirror_bottom"
+  }
+}

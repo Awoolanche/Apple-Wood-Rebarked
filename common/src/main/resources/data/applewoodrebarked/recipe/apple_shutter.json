@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BB ",
+    "BB ",
+    "BB "
+  ],
+  "key": {
+    "B": {
+      "item": "applewoodrebarked:apple_slab"
+    }
+  },
+  "result": {
+    "id": "applewoodrebarked:apple_shutter",
+    "count": 4
+  }
+}

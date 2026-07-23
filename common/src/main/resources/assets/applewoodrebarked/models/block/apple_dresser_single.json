@@ -1,0 +1,9 @@
+{
+  "parent": "furniture:block/oak_dresser_single",
+	"textures": {
+		"0": "applewoodrebarked:block/apple_dresser_front",
+		"1": "applewoodrebarked:block/apple_dresser_side",
+		"2": "applewoodrebarked:block/apple_cabinet_top",
+		"particle": "applewoodrebarked:block/apple_dresser_front"
+	}
+}

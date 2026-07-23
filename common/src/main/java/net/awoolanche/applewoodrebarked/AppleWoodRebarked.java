@@ -1,9 +1,8 @@
 package net.awoolanche.applewoodrebarked;
 
-
-import dev.architectury.event.events.common.LifecycleEvent;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
+import net.awoolanche.applewoodrebarked.compat.FurnitureCompat;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
@@ -12,6 +11,7 @@ import net.awoolanche.applewoodrebarked.util.ModTabs;
 import net.satisfy.vinery.core.registry.EntityTypeRegistry;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
 
+import dev.architectury.event.events.common.LifecycleEvent;
 import net.minecraft.world.level.block.Block;
 import dev.architectury.hooks.item.tool.AxeItemHooks;
 import net.minecraft.resources.ResourceLocation;
@@ -32,7 +32,6 @@ public final class AppleWoodRebarked {
     }
 
     public static void init() {
-        // Write common init code here.
         LOGGER.info("[Let's Do Add-on] Apple Wood Rebarked initialized!");
 
         // Initialization
@@ -41,24 +40,28 @@ public final class AppleWoodRebarked {
         ModItems.init();
         ModTabs.init();
         ModBlockEntities.init();
-
         LifecycleEvent.SETUP.register(ModFuels::init);
         LifecycleEvent.SETUP.register(ModBlocks::fixBlockEntityValidBlocks);
 
+        if (net.awoolanche.applewoodrebarked.util.ModCompat.FURNITURE) {
+            LifecycleEvent.SETUP.register(FurnitureCompat::fixBlockEntityValidBlocks);
+            LifecycleEvent.SETUP.register(FurnitureCompat::registerCreativeTabs);
+        }
+
         LifecycleEvent.SETUP.register(() -> {
-                var vineryLatticeType = EntityTypeRegistry.LATTICE.get();
-                BlockEntityTypeMixin accessor = (BlockEntityTypeMixin) vineryLatticeType;
+            var vineryLatticeType = EntityTypeRegistry.LATTICE.get();
+            BlockEntityTypeMixin accessor = (BlockEntityTypeMixin) vineryLatticeType;
 
-                Set<Block> validBlocks = new HashSet<>(accessor.getValidBlocks());
+            Set<Block> validBlocks = new HashSet<>(accessor.getValidBlocks());
 
-                validBlocks.add(ModBlocks.APPLE_LATTICE.get());
+            validBlocks.add(ModBlocks.APPLE_LATTICE.get());
 
-                accessor.setValidBlocks(validBlocks);
+            accessor.setValidBlocks(validBlocks);
         });
     }
 
     public static void commonSetup() {
-            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_LOG.get(), STRIPPED_APPLE_LOG.get());
-            AxeItemHooks.addStrippable(ObjectRegistry.APPLE_WOOD.get(), STRIPPED_APPLE_WOOD.get());
+        AxeItemHooks.addStrippable(ObjectRegistry.APPLE_LOG.get(), STRIPPED_APPLE_LOG.get());
+        AxeItemHooks.addStrippable(ObjectRegistry.APPLE_WOOD.get(), STRIPPED_APPLE_WOOD.get());
     }
 }

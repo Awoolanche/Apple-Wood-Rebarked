@@ -1,0 +1,7 @@
+{
+  "parent": "furniture:block/oak_shutter_main",
+  "textures": {
+    "particle": "applewoodrebarked:block/apple_shutter_main",
+    "middle": "applewoodrebarked:block/apple_shutter_main"
+  }
+}

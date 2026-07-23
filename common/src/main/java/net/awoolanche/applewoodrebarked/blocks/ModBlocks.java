@@ -1,11 +1,15 @@
 package net.awoolanche.applewoodrebarked.blocks;
 
+import net.awoolanche.applewoodrebarked.compat.FurnitureBlocks;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.vinery.core.block.*;
+import net.satisfy.vinery.core.block.CabinetBlock;
+import net.satisfy.vinery.core.registry.EntityTypeRegistry;
+import net.satisfy.vinery.core.registry.SoundEventRegistry;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -14,19 +18,16 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.satisfy.vinery.core.registry.EntityTypeRegistry;
-import net.satisfy.vinery.core.registry.ObjectRegistry;
-import net.satisfy.vinery.core.registry.SoundEventRegistry;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
 import static net.awoolanche.applewoodrebarked.items.ModItems.ITEMS;
-import static net.minecraft.world.item.Items.registerBlock;
 
 public class ModBlocks {
 
+    // F&C Compatibility declarations
     public static RegistrySupplier<Block> TOMATO_CRATE;
     public static RegistrySupplier<Block> POTATO_CRATE;
     public static RegistrySupplier<Block> CARROT_CRATE;
@@ -35,6 +36,18 @@ public class ModBlocks {
     public static RegistrySupplier<Block> STRAWBERRY_CRATE;
     public static RegistrySupplier<Block> ONION_CRATE;
     public static RegistrySupplier<Block> LETTUCE_CRATE;
+
+    // Furniture Compatibility Declarations
+    public static RegistrySupplier<Block> APPLE_BENCH;
+    public static RegistrySupplier<Block> APPLE_CLOCK;
+    public static RegistrySupplier<Block> APPLE_GRANDFATHER_CLOCK;
+    public static RegistrySupplier<Block> APPLE_MIRROR;
+    public static RegistrySupplier<Block> APPLE_DESK_CHAIR;
+    public static RegistrySupplier<Block> APPLE_DESK;
+    public static RegistrySupplier<Block> APPLE_SHUTTER;
+    public static RegistrySupplier<Block> APPLE_DRESSER;
+    public static RegistrySupplier<Block> APPLE_WARDROBE;
+    public static RegistrySupplier<Block> APPLE_BASE_CABINET;
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create("applewoodrebarked", Registries.BLOCK);
 
@@ -87,6 +100,12 @@ public class ModBlocks {
     static { if (ModCompat.FARM_AND_CHARM) { ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
     static { if (ModCompat.FARM_AND_CHARM) { LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))); }}
 
+    // Furniture Compatibility
+    static {
+        if (ModCompat.FURNITURE) {
+            FurnitureBlocks.register();
+        }
+    }
 
     // Initialization
     public static void init() {
@@ -120,5 +139,9 @@ public class ModBlocks {
         newBlocks.add(ModBlocks.APPLE_DRAWER.get());
 
         accessor.setValidBlocks(newBlocks);
+
+        if (ModCompat.FURNITURE) {
+            FurnitureBlocks.fixGrandfatherClockValidBlocks();
+        }
     }
 }

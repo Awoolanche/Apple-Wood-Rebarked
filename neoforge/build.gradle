@@ -40,6 +40,10 @@ dependencies {
     // If anyone tells you it's optional, they're wrong.
     modImplementation "maven.modrinth:lets-do-vinery:${project.vinery_version}-neoforge"
 
+    // Furniture optional dependency.
+    modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-neoforge"
+    modLocalRuntime "maven.modrinth:lets-do-furniture:${project.furniture_version}-neoforge"
+
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
 }

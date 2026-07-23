@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "applewoodrebarked:block/apple_grandfather_clock",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "applewoodrebarked:block/apple_grandfather_clock"
+    },
+    "facing=south": {
+      "model": "applewoodrebarked:block/apple_grandfather_clock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "applewoodrebarked:block/apple_grandfather_clock",
+      "y": 270
+    }
+  }
+}

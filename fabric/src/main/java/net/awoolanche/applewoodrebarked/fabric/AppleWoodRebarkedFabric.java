@@ -15,12 +15,6 @@ import java.util.Optional;
 public final class AppleWoodRebarkedFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        try {
-            Class.forName("net.awoolanche.applewoodrebarked.blocks.ModBlocks");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
         AppleWoodRebarked.init();
         AppleWoodRebarked.commonSetup();
 

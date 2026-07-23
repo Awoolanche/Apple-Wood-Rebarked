@@ -39,6 +39,16 @@
     "applewoodrebarked:strawberry_crate",
     "applewoodrebarked:beetroot_crate",
     "applewoodrebarked:onion_crate",
-    "applewoodrebarked:corn_crate"
+    "applewoodrebarked:corn_crate",
+    "applewoodrebarked:apple_shutter",
+    "applewoodrebarked:apple_bench",
+    "applewoodrebarked:apple_desk_chair",
+    "applewoodrebarked:apple_base_cabinet",
+    "applewoodrebarked:apple_dresser",
+    "applewoodrebarked:apple_wardrobe",
+    "applewoodrebarked:apple_desk",
+    "applewoodrebarked:apple_clock",
+    "applewoodrebarked:apple_grandfather_clock",
+    "applewoodrebarked:apple_mirror"
   ]
 }

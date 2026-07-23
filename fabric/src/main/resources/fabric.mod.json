@@ -32,6 +32,7 @@
     "fabric-api": "*"
   },
   "suggests": {
-    "another-mod": "*"
+    "furniture": "*"
+
   }
 }

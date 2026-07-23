@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " B ",
+    " B "
+  ],
+  "key": {
+    "#": {
+      "item": "applewoodrebarked:apple_clock"
+    },
+    "B": {
+      "item": "applewoodrebarked:apple_planks"
+    }
+  },
+  "result": {
+    "id": "applewoodrebarked:apple_grandfather_clock",
+    "count": 1
+  }
+}

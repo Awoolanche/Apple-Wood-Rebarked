@@ -52,6 +52,12 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_GRAPE_CRATE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_GRAPE_CRATE.get(), RenderType.cutout());
 
+        if (net.awoolanche.applewoodrebarked.util.ModCompat.FURNITURE) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_WARDROBE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_GRANDFATHER_CLOCK.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_BENCH.get(), RenderType.cutout());
+        }
+
         java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.level.block.Block>> fcCrates =
                 java.util.Arrays.asList(
                         ModBlocks.TOMATO_CRATE,

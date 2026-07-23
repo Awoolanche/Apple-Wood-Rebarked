@@ -36,6 +36,7 @@
     "block.applewoodrebarked.apple_wine_rack_big": "Big Apple Wine Bottle Storage",
     "block.applewoodrebarked.apple_wine_rack_mid": "Apple Wine Rack",
     "block.applewoodrebarked.apple_wine_rack_small": "Small Apple Wine Bottle Storage",
+
     "block.applewoodrebarked.apple_crate": "Apple Crate",
     "block.applewoodrebarked.cherry_crate": "Cherry Crate",
     "block.applewoodrebarked.red_grape_crate": "Red Grape Crate",
@@ -50,6 +51,16 @@
     "block.applewoodrebarked.potato_crate": "Potato Crate",
     "block.applewoodrebarked.strawberry_crate": "Strawberry Crate",
 
+    "block.applewoodrebarked.apple_wardrobe": "Apple Wardrobe",
+    "block.applewoodrebarked.apple_shutter": "Apple Shutter",
+    "block.applewoodrebarked.apple_bench": "Apple Bench",
+    "block.applewoodrebarked.apple_clock": "Apple Clock",
+    "block.applewoodrebarked.apple_grandfather_clock": "Apple Grandfather Clock",
+    "block.applewoodrebarked.apple_mirror": "Apple Mirror",
+    "block.applewoodrebarked.apple_desk": "Apple Desk",
+    "block.applewoodrebarked.apple_desk_chair": "Apple Desk Chair",
+    "block.applewoodrebarked.apple_dresser": "Apple Dresser",
+    "block.applewoodrebarked.apple_base_cabinet": "Apple Base Cabinet",
 
     "block.applewoodrebarked.apple_floorboard": "Apple Floorboard"
 }

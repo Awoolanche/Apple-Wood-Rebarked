@@ -51,5 +51,11 @@ type = "required"
 ordering = "AFTER"
 side = "BOTH"
 
+[[dependencies.applewoodrebarked]]
+modId = "furniture"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
 [[mixins]]
 config = "applewoodrebarked.mixins.json"
