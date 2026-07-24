@@ -1,0 +1,8 @@
+{
+  "parent": "furniture:block/oak_bench_single",
+  "textures": {
+    "0": "applewoodrebarked:block/apple_bench_top",
+    "1": "applewoodrebarked:block/apple_bench_front",
+    "particle": "applewoodrebarked:block/apple_bench_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "furniture:block/oak_desk_chair_inventory",
+  "textures": {
+    "1": "furniture:block/desk_chair_parts",
+    "2": "applewoodrebarked:block/apple_desk_chair",
+    "particle": "applewoodrebarked:block/apple_desk_chair"
+  }
+}

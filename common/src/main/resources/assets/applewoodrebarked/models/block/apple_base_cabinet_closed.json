@@ -2,7 +2,7 @@
 	"format_version": "1.21.11",
 	"credit": "Made by Satisfy",
 	"textures": {
-		"2": "applewoodrebarked:block/apple_cabinet",
+		"2": "applewoodrebarked:block/apple_base_cabinet",
 		"3": "applewoodrebarked:block/apple_dresser_side_inner",
 		"4": "minecraft:block/smithing_table_top",
 		"6": "applewoodrebarked:block/apple_cabinet_bottom",
