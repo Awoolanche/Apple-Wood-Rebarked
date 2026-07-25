@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.compat;
 
 import com.berksire.furniture.core.block.*;
+import com.berksire.furniture.core.registry.EntityTypeRegistry;
 import com.berksire.furniture.core.registry.SoundRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
@@ -43,7 +44,7 @@ public final class FurnitureBlocks {
     }
 
     public static void fixGrandfatherClockValidBlocks() {
-        BlockEntityType<?> clockType = com.berksire.furniture.core.registry.EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get();
+        BlockEntityType<?> clockType = EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get();
         BlockEntityTypeMixin clockAccessor = (BlockEntityTypeMixin) clockType;
 
         Set<Block> clockBlocks = new HashSet<>(clockAccessor.getValidBlocks());

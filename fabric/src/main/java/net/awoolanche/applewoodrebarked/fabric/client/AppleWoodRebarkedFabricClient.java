@@ -55,6 +55,25 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_GRAPE_CRATE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_GRAPE_CRATE.get(), RenderType.cutout());
 
+        if (ModCompat.FARM_AND_CHARM) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTATO_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CARROT_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BEETROOT_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CORN_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STRAWBERRY_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ONION_CRATE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LETTUCE_CRATE.get(), RenderType.cutout());
+        }
+
+        if (ModCompat.LILIS_LUCKY_LURES) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FISH_CRATE.get(), RenderType.cutout());
+        }
+
+        if (ModCompat.HERBALBREWS) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TEA_CRATE.get(), RenderType.cutout());
+        }
+
         if (ModCompat.FURNITURE) {
             BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_WARDROBE.get(), RenderType.cutout());
             BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_GRANDFATHER_CLOCK.get(), RenderType.cutout());
@@ -66,7 +85,7 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(HearthAndTimberBlocks.APPLE_WINDOW.get(), RenderType.cutout());
         }
 
-        java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.level.block.Block>> fcCrates =
+        java.util.List<RegistrySupplier<Block>> fcCrates =
                 java.util.Arrays.asList(
                         ModBlocks.TOMATO_CRATE,
                         ModBlocks.POTATO_CRATE,
