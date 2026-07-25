@@ -37,6 +37,8 @@ public class ModBlocks {
     public static RegistrySupplier<Block> STRAWBERRY_CRATE;
     public static RegistrySupplier<Block> ONION_CRATE;
     public static RegistrySupplier<Block> LETTUCE_CRATE;
+    public static RegistrySupplier<Block> FISH_CRATE;
+    public static RegistrySupplier<Block> TEA_CRATE;
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create("applewoodrebarked", Registries.BLOCK);
 
@@ -89,6 +91,20 @@ public class ModBlocks {
             STRAWBERRY_CRATE = registerWithItem("strawberry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
             ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
             LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+        }
+    }
+
+    // Lili's Lucky Lures Compatibility
+    static {
+        if (ModCompat.LILIS_LUCKY_LURES) {
+            FISH_CRATE = registerWithItem("fish_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+        }
+    }
+
+    // Herbal Brews Compatibility
+    static {
+        if (ModCompat.HERBALBREWS) {
+            TEA_CRATE = registerWithItem("tea_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
         }
     }
 

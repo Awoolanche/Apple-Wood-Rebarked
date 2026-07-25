@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": ["herbalbrews"]
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "herbalbrews"
+        }
+    ],
+    "pattern": [
+        "P P",
+        "PBP",
+        "PPP"
+    ],
+    "key": {
+        "B": {
+            "item": "herbalbrews:tea_leaf_crate"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:tea_crate"
+    }
+}

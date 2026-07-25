@@ -1,0 +1,6 @@
+{
+  "parent": "applewoodrebarked:block/template_crate",
+  "textures": {
+    "3": "lilis_lucky_lures:block/fish_bag_top"
+  }
+}

@@ -69,7 +69,7 @@ public class ModTabs {
                 out.accept(ModBlocks.WHITE_GRAPE_CRATE.get());
 
                 // F&C Compatibility
-                if (Platform.isModLoaded("farm_and_charm") && ModBlocks.TOMATO_CRATE != null) {
+                if (Platform.isModLoaded("farm_and_charm")) {
                     out.accept(ModBlocks.TOMATO_CRATE.get());
                     out.accept(ModBlocks.POTATO_CRATE.get());
                     out.accept(ModBlocks.CARROT_CRATE.get());
@@ -78,9 +78,17 @@ public class ModTabs {
                     out.accept(ModBlocks.BEETROOT_CRATE.get());
                     out.accept(ModBlocks.ONION_CRATE.get());
                     out.accept(ModBlocks.CORN_CRATE.get());
-
-                    out.accept(ModItems.SLINGSHOT.get());
                 }
+
+                if (Platform.isModLoaded("lilis_lucky_lures")) {
+                    out.accept(ModBlocks.FISH_CRATE.get());
+                }
+
+                if (Platform.isModLoaded("herbalbrews")) {
+                    out.accept(ModBlocks.TEA_CRATE.get());
+                }
+
+                out.accept(ModItems.SLINGSHOT.get());
 
                 // External mod items
                 addExternalItem(out, "vinery", "apple_tree_sapling");

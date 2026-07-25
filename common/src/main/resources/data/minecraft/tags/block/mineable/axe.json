@@ -40,6 +40,10 @@
     { "id": "applewoodrebarked:onion_crate", "required": false },
     { "id": "applewoodrebarked:corn_crate", "required": false },
 
+    { "id": "applewoodrebarked:fish_crate", "required": false },
+
+    { "id": "applewoodrebarked:tea_crate", "required": false },
+
     { "id": "applewoodrebarked:apple_shutter", "required": false },
     { "id": "applewoodrebarked:apple_bench", "required": false },
     { "id": "applewoodrebarked:apple_desk_chair", "required": false },

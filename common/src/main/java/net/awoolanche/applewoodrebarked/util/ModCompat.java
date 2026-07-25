@@ -9,4 +9,8 @@ public class ModCompat {
             Platform.isModLoaded("furniture");
     public static final boolean HEARTH_AND_TIMBER =
             Platform.isModLoaded("hearth_and_timber");
+    public static final boolean LILIS_LUCKY_LURES =
+            Platform.isModLoaded("lilis_lucky_lures");
+    public static final boolean HERBALBREWS =
+            Platform.isModLoaded("herbalbrews");
 }
