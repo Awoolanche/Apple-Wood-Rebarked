@@ -1,17 +1,32 @@
 package net.awoolanche.applewoodrebarked.compat;
 
-import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
-import net.awoolanche.applewoodrebarked.util.ModTabs;
 import com.berksire.furniture.core.registry.EntityTypeRegistry;
+import com.berksire.furniture.core.registry.ObjectRegistry;
 import com.berksire.furniture.core.registry.TabRegistry;
-
 import dev.architectury.registry.CreativeTabRegistry;
+import dev.architectury.registry.registries.RegistrySupplier;
+import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
+import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
+import net.awoolanche.applewoodrebarked.util.ModCompat;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class FurnitureCompat {
 
+    private static final ResourceKey<CreativeModeTab> COMPAT_TAB_KEY = ResourceKey.create(
+            Registries.CREATIVE_MODE_TAB,
+            ResourceLocation.fromNamespaceAndPath("furniture", "furniture_compat_layer"));
+
     public static void fixBlockEntityValidBlocks() {
-        if (!net.awoolanche.applewoodrebarked.util.ModCompat.FURNITURE) {
+        if (!ModCompat.FURNITURE) {
             return;
         }
 
@@ -23,48 +38,37 @@ public class FurnitureCompat {
     }
 
     public static void registerCreativeTabs() {
-        if (!net.awoolanche.applewoodrebarked.util.ModCompat.FURNITURE) {
+        if (!ModCompat.FURNITURE) {
             return;
         }
 
-        // Furniture CL Tab
         if (TabRegistry.FURNITURE_COMPAT_LAYER_TAB != null) {
-            CreativeTabRegistry.append(
-                    TabRegistry.FURNITURE_COMPAT_LAYER_TAB,
-                    FurnitureBlocks.APPLE_SHUTTER,
-                    FurnitureBlocks.APPLE_BENCH,
-                    FurnitureBlocks.APPLE_DESK_CHAIR,
-                    FurnitureBlocks.APPLE_BASE_CABINET,
-                    FurnitureBlocks.APPLE_DRESSER,
-                    FurnitureBlocks.APPLE_WARDROBE,
-                    FurnitureBlocks.APPLE_DESK,
-                    FurnitureBlocks.APPLE_CLOCK,
-                    FurnitureBlocks.APPLE_GRANDFATHER_CLOCK,
-                    FurnitureBlocks.APPLE_MIRROR
-            );
-        } else {
-            // If other mods aren't loaded, put them in main tab
-            CreativeTabRegistry.append(
-                    ModTabs.APPLE_WOOD_REBARKED_TAB,
-                    FurnitureBlocks.APPLE_SHUTTER,
-                    FurnitureBlocks.APPLE_BENCH,
-                    FurnitureBlocks.APPLE_DESK_CHAIR,
-                    FurnitureBlocks.APPLE_BASE_CABINET,
-                    FurnitureBlocks.APPLE_DRESSER,
-                    FurnitureBlocks.APPLE_WARDROBE,
-                    FurnitureBlocks.APPLE_DESK,
-                    FurnitureBlocks.APPLE_CLOCK,
-                    FurnitureBlocks.APPLE_GRANDFATHER_CLOCK,
-                    FurnitureBlocks.APPLE_MIRROR
-            );
+            insertAfterDarkCherry(ObjectRegistry.SHUTTERS, FurnitureBlocks.APPLE_SHUTTER);
+            insertAfterDarkCherry(ObjectRegistry.BENCHES, FurnitureBlocks.APPLE_BENCH);
+            insertAfterDarkCherry(ObjectRegistry.DESK_CHAIRS, FurnitureBlocks.APPLE_DESK_CHAIR);
+            insertAfterDarkCherry(ObjectRegistry.CABINETS, FurnitureBlocks.APPLE_BASE_CABINET);
+            insertAfterDarkCherry(ObjectRegistry.DRESSER, FurnitureBlocks.APPLE_DRESSER);
+            insertAfterDarkCherry(ObjectRegistry.WARDROBES, FurnitureBlocks.APPLE_WARDROBE);
+            insertAfterDarkCherry(ObjectRegistry.DESKS, FurnitureBlocks.APPLE_DESK);
+            insertAfterDarkCherry(ObjectRegistry.CLOCKS, FurnitureBlocks.APPLE_CLOCK);
+            insertAfterDarkCherry(ObjectRegistry.GRANDFATHER_CLOCKS, FurnitureBlocks.APPLE_GRANDFATHER_CLOCK);
+            insertAfterDarkCherry(ObjectRegistry.MIRRORS, FurnitureBlocks.APPLE_MIRROR);
         }
     }
 
-    private static void addValidBlock(net.minecraft.world.level.block.entity.BlockEntityType<?> type, Block block) {
-        net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin accessor =
-                (net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin) type;
+    private static void insertAfterDarkCherry(
+            Map<String, ? extends RegistrySupplier<Block>> compatMap,
+            RegistrySupplier<Block> ourBlock) {
+        var darkCherry = compatMap.get("dark_cherry");
+        if (darkCherry != null) {
+            PlatformHelper.insertAfter(COMPAT_TAB_KEY, darkCherry, ourBlock);
+        }
+    }
 
-        java.util.Set<Block> validBlocks = new java.util.HashSet<>(accessor.getValidBlocks());
+    private static void addValidBlock(BlockEntityType<?> type, Block block) {
+        BlockEntityTypeMixin accessor = (BlockEntityTypeMixin) type;
+
+        Set<Block> validBlocks = new HashSet<>(accessor.getValidBlocks());
         validBlocks.add(block);
         accessor.setValidBlocks(validBlocks);
     }
