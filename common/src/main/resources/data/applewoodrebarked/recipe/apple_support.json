@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wood",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": ["hearth_and_timber"]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "hearth_and_timber"
+    }
+  ],
+  "pattern": [
+    "###",
+    "#B ",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "applewoodrebarked:apple_planks"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "applewoodrebarked:apple_support",
+    "count": 3
+  }
+}

@@ -3,9 +3,11 @@ package net.awoolanche.applewoodrebarked;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.compat.FurnitureCompat;
+import net.awoolanche.applewoodrebarked.compat.HearthAndTimberCompat;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
+import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModFuels;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
 import net.satisfy.vinery.core.registry.EntityTypeRegistry;
@@ -46,6 +48,10 @@ public final class AppleWoodRebarked {
         if (net.awoolanche.applewoodrebarked.util.ModCompat.FURNITURE) {
             LifecycleEvent.SETUP.register(FurnitureCompat::fixBlockEntityValidBlocks);
             LifecycleEvent.SETUP.register(FurnitureCompat::registerCreativeTabs);
+        }
+
+        if (ModCompat.HEARTH_AND_TIMBER) {
+            LifecycleEvent.SETUP.register(HearthAndTimberCompat::registerCreativeTabs);
         }
 
         LifecycleEvent.SETUP.register(() -> {

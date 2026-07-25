@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "applewoodrebarked:block/apple_support_beam",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "applewoodrebarked:block/apple_support_beam"
+    },
+    "axis=z": {
+      "model": "applewoodrebarked:block/apple_support_beam",
+      "x": 90
+    }
+  }
+}

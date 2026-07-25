@@ -43,6 +43,10 @@ dependencies {
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-fabric"
     modLocalRuntime "maven.modrinth:lets-do-furniture:${project.furniture_version}-fabric"
 
+    // Hearth and Timber optional dependency.
+    modCompileOnly "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-fabric"
+    modLocalRuntime "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-fabric"
+
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
 }

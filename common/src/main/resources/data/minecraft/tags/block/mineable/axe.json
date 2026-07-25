@@ -49,6 +49,18 @@
     { "id": "applewoodrebarked:apple_desk", "required": false },
     { "id": "applewoodrebarked:apple_clock", "required": false },
     { "id": "applewoodrebarked:apple_grandfather_clock", "required": false },
-    { "id": "applewoodrebarked:apple_mirror", "required": false }
+    { "id": "applewoodrebarked:apple_mirror", "required": false },
+
+    { "id": "applewoodrebarked:apple_shingles", "required": false },
+    { "id": "applewoodrebarked:apple_shingle_slab", "required": false },
+    { "id": "applewoodrebarked:apple_shingle_stairs", "required": false },
+    { "id": "applewoodrebarked:apple_support_beam", "required": false },
+    { "id": "applewoodrebarked:apple_support", "required": false },
+    { "id": "applewoodrebarked:apple_pillar", "required": false },
+    { "id": "applewoodrebarked:apple_railing", "required": false },
+    { "id": "applewoodrebarked:apple_window_casing", "required": false },
+    { "id": "applewoodrebarked:apple_window_pane", "required": false },
+    { "id": "applewoodrebarked:apple_window", "required": false },
+    { "id": "applewoodrebarked:apple_board", "required": false }
   ]
 }

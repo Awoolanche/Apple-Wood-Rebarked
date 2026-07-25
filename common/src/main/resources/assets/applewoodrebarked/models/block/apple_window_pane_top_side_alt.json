@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side_alt",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "pane": "applewoodrebarked:block/apple_window_pane_top",
+    "edge": "applewoodrebarked:block/apple_window_pane_side"
+  }
+}

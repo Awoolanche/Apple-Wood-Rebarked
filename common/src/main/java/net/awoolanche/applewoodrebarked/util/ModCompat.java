@@ -7,4 +7,6 @@ public class ModCompat {
             Platform.isModLoaded("farm_and_charm");
     public static final boolean FURNITURE =
             Platform.isModLoaded("furniture");
+    public static final boolean HEARTH_AND_TIMBER =
+            Platform.isModLoaded("hearth_and_timber");
 }

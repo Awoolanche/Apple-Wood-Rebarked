@@ -20,4 +20,6 @@ dependencies {
 
     // Furniture. Optional dependency, refer to Fabric and NeoForge build.gradle for more information.
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-fabric"
+
+    modCompileOnly "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-fabric"
 }

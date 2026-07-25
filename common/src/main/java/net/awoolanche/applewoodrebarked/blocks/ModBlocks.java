@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.blocks;
 
 import net.awoolanche.applewoodrebarked.compat.FurnitureBlocks;
+import net.awoolanche.applewoodrebarked.compat.HearthAndTimberBlocks;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
@@ -37,20 +38,7 @@ public class ModBlocks {
     public static RegistrySupplier<Block> ONION_CRATE;
     public static RegistrySupplier<Block> LETTUCE_CRATE;
 
-    // Furniture Compatibility Declarations
-    public static RegistrySupplier<Block> APPLE_BENCH;
-    public static RegistrySupplier<Block> APPLE_CLOCK;
-    public static RegistrySupplier<Block> APPLE_GRANDFATHER_CLOCK;
-    public static RegistrySupplier<Block> APPLE_MIRROR;
-    public static RegistrySupplier<Block> APPLE_DESK_CHAIR;
-    public static RegistrySupplier<Block> APPLE_DESK;
-    public static RegistrySupplier<Block> APPLE_SHUTTER;
-    public static RegistrySupplier<Block> APPLE_DRESSER;
-    public static RegistrySupplier<Block> APPLE_WARDROBE;
-    public static RegistrySupplier<Block> APPLE_BASE_CABINET;
-
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create("applewoodrebarked", Registries.BLOCK);
-
 
     public static final RegistrySupplier<Block> TEST_BLOCK = registerWithItem("test_block", () -> new Block(baseProperties("test_block")));
 
@@ -108,6 +96,13 @@ public class ModBlocks {
     static {
         if (ModCompat.FURNITURE) {
             FurnitureBlocks.register();
+        }
+    }
+
+    // Hearth & Timber Compatibility
+    static {
+        if (ModCompat.HEARTH_AND_TIMBER) {
+            HearthAndTimberBlocks.register();
         }
     }
 

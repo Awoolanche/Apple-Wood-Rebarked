@@ -1,0 +1,7 @@
+{
+  "parent": "hearth_and_timber:block/spruce_board_top_2",
+  "textures": {
+    "particle": "applewoodrebarked:block/apple_board",
+    "planks": "applewoodrebarked:block/apple_board"
+  }
+}

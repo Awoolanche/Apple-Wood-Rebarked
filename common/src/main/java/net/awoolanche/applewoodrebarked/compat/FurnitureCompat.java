@@ -15,11 +15,11 @@ public class FurnitureCompat {
             return;
         }
 
-        addValidBlock(EntityTypeRegistry.DRESSER_BLOCK_ENTITY.get(), ModBlocks.APPLE_DRESSER.get());
-        addValidBlock(EntityTypeRegistry.CLOCK_BLOCK_ENTITY.get(), ModBlocks.APPLE_CLOCK.get());
-        addValidBlock(EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get(), ModBlocks.APPLE_GRANDFATHER_CLOCK.get());
-        addValidBlock(EntityTypeRegistry.WARDROBE_BLOCK_ENTITY.get(), ModBlocks.APPLE_WARDROBE.get());
-        addValidBlock(EntityTypeRegistry.CABINET_BLOCK_ENTITY.get(), ModBlocks.APPLE_BASE_CABINET.get());
+        addValidBlock(EntityTypeRegistry.DRESSER_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_DRESSER.get());
+        addValidBlock(EntityTypeRegistry.CLOCK_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_CLOCK.get());
+        addValidBlock(EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_GRANDFATHER_CLOCK.get());
+        addValidBlock(EntityTypeRegistry.WARDROBE_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_WARDROBE.get());
+        addValidBlock(EntityTypeRegistry.CABINET_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_BASE_CABINET.get());
     }
 
     public static void registerCreativeTabs() {
@@ -31,31 +31,31 @@ public class FurnitureCompat {
         if (TabRegistry.FURNITURE_COMPAT_LAYER_TAB != null) {
             CreativeTabRegistry.append(
                     TabRegistry.FURNITURE_COMPAT_LAYER_TAB,
-                    ModBlocks.APPLE_SHUTTER,
-                    ModBlocks.APPLE_BENCH,
-                    ModBlocks.APPLE_DESK_CHAIR,
-                    ModBlocks.APPLE_BASE_CABINET,
-                    ModBlocks.APPLE_DRESSER,
-                    ModBlocks.APPLE_WARDROBE,
-                    ModBlocks.APPLE_DESK,
-                    ModBlocks.APPLE_CLOCK,
-                    ModBlocks.APPLE_GRANDFATHER_CLOCK,
-                    ModBlocks.APPLE_MIRROR
+                    FurnitureBlocks.APPLE_SHUTTER,
+                    FurnitureBlocks.APPLE_BENCH,
+                    FurnitureBlocks.APPLE_DESK_CHAIR,
+                    FurnitureBlocks.APPLE_BASE_CABINET,
+                    FurnitureBlocks.APPLE_DRESSER,
+                    FurnitureBlocks.APPLE_WARDROBE,
+                    FurnitureBlocks.APPLE_DESK,
+                    FurnitureBlocks.APPLE_CLOCK,
+                    FurnitureBlocks.APPLE_GRANDFATHER_CLOCK,
+                    FurnitureBlocks.APPLE_MIRROR
             );
         } else {
             // If other mods aren't loaded, put them in main tab
             CreativeTabRegistry.append(
                     ModTabs.APPLE_WOOD_REBARKED_TAB,
-                    ModBlocks.APPLE_SHUTTER,
-                    ModBlocks.APPLE_BENCH,
-                    ModBlocks.APPLE_DESK_CHAIR,
-                    ModBlocks.APPLE_BASE_CABINET,
-                    ModBlocks.APPLE_DRESSER,
-                    ModBlocks.APPLE_WARDROBE,
-                    ModBlocks.APPLE_DESK,
-                    ModBlocks.APPLE_CLOCK,
-                    ModBlocks.APPLE_GRANDFATHER_CLOCK,
-                    ModBlocks.APPLE_MIRROR
+                    FurnitureBlocks.APPLE_SHUTTER,
+                    FurnitureBlocks.APPLE_BENCH,
+                    FurnitureBlocks.APPLE_DESK_CHAIR,
+                    FurnitureBlocks.APPLE_BASE_CABINET,
+                    FurnitureBlocks.APPLE_DRESSER,
+                    FurnitureBlocks.APPLE_WARDROBE,
+                    FurnitureBlocks.APPLE_DESK,
+                    FurnitureBlocks.APPLE_CLOCK,
+                    FurnitureBlocks.APPLE_GRANDFATHER_CLOCK,
+                    FurnitureBlocks.APPLE_MIRROR
             );
         }
     }

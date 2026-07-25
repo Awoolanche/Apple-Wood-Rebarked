@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "applewoodrebarked:block/apple_shingle_slab"
+    },
+    "type=top": {
+      "model": "applewoodrebarked:block/apple_shingle_slab_top"
+    },
+    "type=double": {
+      "model": "applewoodrebarked:block/apple_shingles"
+    }
+  }
+}

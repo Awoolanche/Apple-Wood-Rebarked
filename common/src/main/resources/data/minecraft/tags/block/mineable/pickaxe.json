@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "applewoodrebarked:apple_big_table"
+    "applewoodrebarked:apple_big_table",
+
+    { "id": "applewoodrebarked:apple_window_pane", "required": false },
+    { "id": "applewoodrebarked:apple_window", "required": false }
   ]
 }

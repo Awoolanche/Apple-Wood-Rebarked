@@ -3,11 +3,14 @@ package net.awoolanche.applewoodrebarked.fabric.client;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
+import net.awoolanche.applewoodrebarked.compat.FurnitureBlocks;
+import net.awoolanche.applewoodrebarked.compat.HearthAndTimberBlocks;
 import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.render.AppleBoatRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
+import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModPredicates;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
@@ -52,10 +55,15 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_GRAPE_CRATE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_GRAPE_CRATE.get(), RenderType.cutout());
 
-        if (net.awoolanche.applewoodrebarked.util.ModCompat.FURNITURE) {
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_WARDROBE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_GRANDFATHER_CLOCK.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_BENCH.get(), RenderType.cutout());
+        if (ModCompat.FURNITURE) {
+            BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_WARDROBE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_GRANDFATHER_CLOCK.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_BENCH.get(), RenderType.cutout());
+        }
+
+        if (ModCompat.HEARTH_AND_TIMBER) {
+            BlockRenderLayerMap.INSTANCE.putBlock(HearthAndTimberBlocks.APPLE_WINDOW_PANE.get(), RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(HearthAndTimberBlocks.APPLE_WINDOW.get(), RenderType.cutout());
         }
 
         java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.level.block.Block>> fcCrates =

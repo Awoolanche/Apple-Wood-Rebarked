@@ -1,0 +1,7 @@
+{
+  "parent": "hearth_and_timber:block/spruce_pillar_west",
+  "textures": {
+    "0": "applewoodrebarked:block/apple_window_casing",
+    "particle": "applewoodrebarked:block/apple_window_casing"
+  }
+}

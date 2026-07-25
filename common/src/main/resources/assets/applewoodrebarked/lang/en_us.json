@@ -36,6 +36,7 @@
     "block.applewoodrebarked.apple_wine_rack_big": "Big Apple Wine Bottle Storage",
     "block.applewoodrebarked.apple_wine_rack_mid": "Apple Wine Rack",
     "block.applewoodrebarked.apple_wine_rack_small": "Small Apple Wine Bottle Storage",
+    "block.applewoodrebarked.apple_floorboard": "Apple Floorboard",
 
     "block.applewoodrebarked.apple_crate": "Apple Crate",
     "block.applewoodrebarked.cherry_crate": "Cherry Crate",
@@ -62,5 +63,17 @@
     "block.applewoodrebarked.apple_dresser": "Apple Dresser",
     "block.applewoodrebarked.apple_base_cabinet": "Apple Base Cabinet",
 
-    "block.applewoodrebarked.apple_floorboard": "Apple Floorboard"
+    "block.applewoodrebarked.apple_shingles": "Apple Shingles",
+    "block.applewoodrebarked.apple_shingle_stairs": "Apple Shingle Stairs",
+    "block.applewoodrebarked.apple_shingle_slab": "Apple Shingle Slab",
+    "block.applewoodrebarked.apple_support": "Apple Support",
+    "block.applewoodrebarked.apple_support_beam": "Apple Support Beam",
+    "block.applewoodrebarked.apple_pillar": "Apple Pillar",
+    "block.applewoodrebarked.apple_railing": "Apple Railing",
+    "block.applewoodrebarked.apple_window_casing": "Apple Window Casing",
+    "block.applewoodrebarked.apple_window_pane": "Apple Glass Pane",
+    "block.applewoodrebarked.apple_window": "Apple Window",
+    "block.applewoodrebarked.apple_board": "Apple Board"
+
+
 }

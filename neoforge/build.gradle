@@ -44,6 +44,10 @@ dependencies {
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-neoforge"
     modLocalRuntime "maven.modrinth:lets-do-furniture:${project.furniture_version}-neoforge"
 
+    // Hearth and Timber optional dependency.
+    modCompileOnly "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-neoforge"
+    modLocalRuntime "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-neoforge"
+
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
 }
