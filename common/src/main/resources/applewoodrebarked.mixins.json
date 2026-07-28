@@ -10,8 +10,9 @@
   ],
   "mixins": [
     "BlockEntityTypeMixin",
-    "StorageTypeRegistryMixin",
-    "ProjectileEntityMixin"
+    "PlayerCritMixin",
+    "ProjectileEntityMixin",
+    "StorageTypeRegistryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

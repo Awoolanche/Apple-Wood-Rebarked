@@ -8,11 +8,13 @@ import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.satisfy.vinery.core.entity.DarkCherryBoatEntity;
 import net.satisfy.vinery.core.item.DarkCherryBoatItem;
+import net.satisfy.vinery.core.item.DrinkBlockItem;
 
 import java.util.function.Supplier;
 
@@ -27,6 +29,7 @@ public class ModItems {
     public static final RegistrySupplier<Item> APPLE_BOAT = ITEMS.register("apple_boat", () -> new AppleBoatItem(false, AppleBoatEntity.Type.APPLE, new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> APPLE_CHEST_BOAT = ITEMS.register("apple_chest_boat", () -> new AppleBoatItem(true, AppleBoatEntity.Type.APPLE, new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> SLINGSHOT = registerItem("slingshot", () -> new SlingshotItem(new Item.Properties().durability(128).stacksTo(1)));
+    public static final RegistrySupplier<Item> AWOO_PIE_MOONSHINE = ITEMS.register("awoo_pie_moonshine", () -> new DrinkBlockItem(ModBlocks.AWOO_PIE_MOONSHINE.get(), new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()), true,DrinkBlockItem.BottleSize.BIG));
 
     public static void init() {
         ITEMS.register();

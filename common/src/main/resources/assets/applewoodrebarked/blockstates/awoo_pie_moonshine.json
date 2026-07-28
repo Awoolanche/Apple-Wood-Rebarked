@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "fake_model=false": {
+      "model": "applewoodrebarked:block/wine/awoo_pie_moonshine"
+    },
+    "fake_model=true": {
+      "model": "vinery:block/transparent"
+    }
+  }
+}

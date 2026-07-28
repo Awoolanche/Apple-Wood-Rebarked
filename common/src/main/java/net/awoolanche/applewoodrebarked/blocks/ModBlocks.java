@@ -80,6 +80,8 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> RED_GRAPE_CRATE = registerWithItem("red_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final RegistrySupplier<Block> WHITE_GRAPE_CRATE = registerWithItem("white_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 
+    public static final RegistrySupplier<Block> AWOO_PIE_MOONSHINE = registerWithoutItem("awoo_pie_moonshine", () -> new WineBottleBlock(getWineSettings(), 1));
+
     // F&C Compatibility
     static {
         if (ModCompat.FARM_AND_CHARM) {
@@ -140,6 +142,10 @@ public class ModBlocks {
 
     public static BlockBehaviour.Properties baseProperties(String name) {
         return BlockBehaviour.Properties.of();
+    }
+
+    public static BlockBehaviour.Properties getWineSettings() {
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).noOcclusion().instabreak();
     }
 
     public static void fixBlockEntityValidBlocks() {

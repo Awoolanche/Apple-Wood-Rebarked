@@ -88,6 +88,7 @@ public class ModTabs {
                     out.accept(ModBlocks.TEA_CRATE.get());
                 }
 
+                out.accept(ModItems.AWOO_PIE_MOONSHINE.get());
                 out.accept(ModItems.SLINGSHOT.get());
 
                 // External mod items

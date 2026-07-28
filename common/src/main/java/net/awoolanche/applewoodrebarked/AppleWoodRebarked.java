@@ -4,12 +4,14 @@ import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.compat.FurnitureCompat;
 import net.awoolanche.applewoodrebarked.compat.HearthAndTimberCompat;
+import net.awoolanche.applewoodrebarked.effects.ModEffects;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModFuels;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
+import net.satisfy.vinery.core.item.DrinkBlockItem;
 import net.satisfy.vinery.core.registry.EntityTypeRegistry;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
 
@@ -42,6 +44,7 @@ public final class AppleWoodRebarked {
         ModItems.init();
         ModTabs.init();
         ModBlockEntities.init();
+        ModEffects.init();
         LifecycleEvent.SETUP.register(ModFuels::init);
         LifecycleEvent.SETUP.register(ModBlocks::fixBlockEntityValidBlocks);
 
@@ -53,6 +56,21 @@ public final class AppleWoodRebarked {
         if (ModCompat.HEARTH_AND_TIMBER) {
             LifecycleEvent.SETUP.register(HearthAndTimberCompat::registerCreativeTabs);
         }
+
+        LifecycleEvent.SETUP.register(() -> {
+            if (ModItems.AWOO_PIE_MOONSHINE.get() instanceof DrinkBlockItem drink) {
+                drink.setEffectSupplier(() -> ModEffects.FEROCITY, 1600, 0);
+            }
+        });
+
+        LifecycleEvent.SETUP.register(() -> {
+            var vineryStorageType = EntityTypeRegistry.STORAGE_ENTITY.get();
+            BlockEntityTypeMixin accessor = (BlockEntityTypeMixin) vineryStorageType;
+
+            Set<Block> validBlocks = new HashSet<>(accessor.getValidBlocks());
+            validBlocks.add(ModBlocks.AWOO_PIE_MOONSHINE.get());
+            accessor.setValidBlocks(validBlocks);
+        });
 
         LifecycleEvent.SETUP.register(() -> {
             var vineryLatticeType = EntityTypeRegistry.LATTICE.get();

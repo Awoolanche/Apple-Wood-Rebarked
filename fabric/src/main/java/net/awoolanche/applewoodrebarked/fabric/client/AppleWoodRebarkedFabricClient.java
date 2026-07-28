@@ -1,24 +1,30 @@
 package net.awoolanche.applewoodrebarked.fabric.client;
 
-import dev.architectury.registry.registries.RegistrySupplier;
+
 import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.compat.FurnitureBlocks;
 import net.awoolanche.applewoodrebarked.compat.HearthAndTimberBlocks;
+import net.awoolanche.applewoodrebarked.effects.ModEffects;
 import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.render.AppleBoatRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleHangingSignRenderer;
 import net.awoolanche.applewoodrebarked.render.AppleSignRenderer;
+import net.awoolanche.applewoodrebarked.render.VignetteRenderer;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModPredicates;
 import net.awoolanche.applewoodrebarked.util.ModWoodType;
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -28,9 +34,6 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
-import java.util.List;
-
-
 public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
 
     @Override
@@ -38,6 +41,7 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         ModPredicates.init();
         tryAddWoodType(ModWoodType.APPLE);
         registerBoatModels();
+        HudRenderCallback.EVENT.register(this::onRenderVignette);
 
 
         EntityRendererRegistry.register(ModEntities.APPLE_BOAT.get(), (context) -> new AppleBoatRenderer(context, false));
@@ -45,7 +49,6 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SLINGSHOT_PROJECTILE.get(), ThrownItemRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.APPLE_SIGN.get(), AppleSignRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.APPLE_HANGING_SIGN.get(), AppleHangingSignRenderer::new);
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LATTICE.get(), RenderType.cutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LATTICE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_DOOR.get(), RenderType.cutout());
@@ -54,7 +57,7 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHERRY_CRATE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_GRAPE_CRATE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_GRAPE_CRATE.get(), RenderType.cutout());
-
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.AWOO_PIE_MOONSHINE.get(), RenderType.cutout());
         if (ModCompat.FARM_AND_CHARM) {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CRATE.get(), RenderType.cutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTATO_CRATE.get(), RenderType.cutout());
@@ -103,6 +106,15 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
             }
         }
     }
+
+    private void onRenderVignette(GuiGraphics guiGraphics, net.minecraft.client.DeltaTracker deltaTracker) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player != null && mc.player.hasEffect(ModEffects.ferocityHolder())) {
+            VignetteRenderer.renderRadialVignette(guiGraphics, guiGraphics.guiWidth(), guiGraphics.guiHeight(),
+                    0.55F, 0.04F, 0.04F, 0.3F);
+        }
+    }
+
 
     private void registerBoatModels() {
         for (AppleBoatEntity.Type type : AppleBoatEntity.Type.values()) {
