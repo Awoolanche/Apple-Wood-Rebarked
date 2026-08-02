@@ -1,9 +1,9 @@
 {
   "description": {
-    "translate": "enchantment.applewoodrebarked.alchemistry"
+    "translate": "enchantment.applewoodrebarked.heavy_lifting"
   },
-  "supported_items": "#applewoodrebarked:enchantable/alchemistry",
-  "primary_items": "#applewoodrebarked:enchantable/alchemistry",
+  "supported_items": "#applewoodrebarked:enchantable/heavy_lifting",
+  "primary_items": "#applewoodrebarked:enchantable/heavy_lifting",
   "exclusive_set": "#applewoodrebarked:exclusive_set/slingshot_ammo_type",
   "weight": 2,
   "max_level": 1,

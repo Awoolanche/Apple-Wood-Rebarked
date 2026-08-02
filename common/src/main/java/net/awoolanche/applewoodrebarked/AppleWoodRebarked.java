@@ -69,6 +69,10 @@ public final class AppleWoodRebarked {
 
             Set<Block> validBlocks = new HashSet<>(accessor.getValidBlocks());
             validBlocks.add(ModBlocks.AWOO_PIE_MOONSHINE.get());
+            validBlocks.add(ModBlocks.APPLE_SHELF.get());
+            validBlocks.add(ModBlocks.APPLE_WINE_RACK_BIG.get());
+            validBlocks.add(ModBlocks.APPLE_WINE_RACK_MID.get());
+            validBlocks.add(ModBlocks.APPLE_WINE_RACK_SMALL.get());
             accessor.setValidBlocks(validBlocks);
         });
 

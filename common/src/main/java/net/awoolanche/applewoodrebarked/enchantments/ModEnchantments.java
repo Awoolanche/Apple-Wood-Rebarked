@@ -8,4 +8,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 public class ModEnchantments {
     public static final ResourceKey<Enchantment> ALCHEMISTRY =
             ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("applewoodrebarked", "alchemistry"));
+    public static final ResourceKey<Enchantment> HEAVY_LIFTING =
+            ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("applewoodrebarked", "heavy_lifting"));
 }

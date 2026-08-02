@@ -1,17 +1,20 @@
 package net.awoolanche.applewoodrebarked.items;
 
+import net.awoolanche.applewoodrebarked.enchantments.ModEnchantments;
 import net.awoolanche.applewoodrebarked.entities.SlingshotProjectileEntity;
 import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
-import net.awoolanche.applewoodrebarked.enchantments.ModEnchantments;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -23,6 +26,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class SlingshotItem extends Item {
 
@@ -42,6 +48,22 @@ public class SlingshotItem extends Item {
             stack.is(Items.SPLASH_POTION) ||
                     stack.is(Items.LINGERING_POTION);
 
+    public static final TagKey<Block> MULTIBLOCK_BLACKLIST =
+            TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("applewoodrebarked", "heavy_lifting_blacklist"));
+
+    public static final Predicate<ItemStack> IS_BLOCK_AMMO = stack ->
+            !stack.isEmpty() && stack.getItem() instanceof BlockItem blockItem && !isMultiblock(blockItem);
+
+    public static boolean isMultiblock(BlockItem blockItem) {
+        BlockState defaultState = blockItem.getBlock().defaultBlockState();
+
+        if (defaultState.is(MULTIBLOCK_BLACKLIST)) return true;
+        if (defaultState.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)) return true;
+        if (defaultState.hasProperty(BlockStateProperties.BED_PART)) return true;
+
+        return false;
+    }
+
     public SlingshotItem(Properties properties) {
         super(properties);
     }
@@ -55,7 +77,8 @@ public class SlingshotItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
-        boolean canSourceAmmo = !findAmmo(player, itemStack, level).isEmpty() || player.getAbilities().instabuild;
+        ItemStack ammoStack = findAmmo(player, itemStack, level);
+        boolean canSourceAmmo = !ammoStack.isEmpty() || player.getAbilities().instabuild;
 
         if (!canSourceAmmo) {
             return InteractionResultHolder.fail(itemStack);
@@ -70,8 +93,6 @@ public class SlingshotItem extends Item {
         PlatformHelper.appendTooltip(stack, tooltip);
         super.appendHoverText(stack, context, tooltip, flag);
     }
-
-
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity user, int remainingUseTicks) {
@@ -110,8 +131,13 @@ public class SlingshotItem extends Item {
     public static ItemStack findAmmo(Player player, ItemStack slingshotStack, Level level) {
         Predicate<ItemStack> ammoPredicate = hasAlchemistry(slingshotStack, level) ? IS_AMMO.or(IS_POTION_AMMO) : IS_AMMO;
 
-        if (ammoPredicate.test(player.getOffhandItem())) {
-            return player.getOffhandItem();
+        ItemStack offhand = player.getOffhandItem();
+        if (ammoPredicate.test(offhand)) {
+            return offhand;
+        }
+
+        if (hasHeavyLifting(slingshotStack, level) && IS_BLOCK_AMMO.test(offhand)) {
+            return offhand;
         }
 
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
@@ -131,6 +157,13 @@ public class SlingshotItem extends Item {
         return EnchantmentHelper.getItemEnchantmentLevel(alchemistry, slingshotStack) > 0;
     }
 
+    public static boolean hasHeavyLifting(ItemStack slingshotStack, Level level) {
+        Holder<Enchantment> heavyLifting = level.registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(ModEnchantments.HEAVY_LIFTING);
+
+        return EnchantmentHelper.getItemEnchantmentLevel(heavyLifting, slingshotStack) > 0;
+    }
 
     private float getPowerForTime(int useTime) {
         float f = (float)useTime / 15.0F;

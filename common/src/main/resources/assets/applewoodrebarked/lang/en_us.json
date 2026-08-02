@@ -8,6 +8,8 @@
   "Enchantments": "Enchantments",
   "enchantment.applewoodrebarked.alchemistry": "Alchemistry",
   "enchantment.applewoodrebarked.alchemistry.desc": "Allows the slingshot to fire splash and lingering potions.",
+  "enchantment.applewoodrebarked.heavy_lifting": "Heavy Lifting",
+  "enchantment.applewoodrebarked.heavy_lifting.desc": "Allows the slingshot to fire blocks from the off-hand slot.",
 
   "Items": "Items",
     "item.applewoodrebarked.test_item": "Test Item",

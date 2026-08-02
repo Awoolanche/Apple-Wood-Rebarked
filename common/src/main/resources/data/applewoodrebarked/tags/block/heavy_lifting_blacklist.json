@@ -1,0 +1,25 @@
+{
+  "values": [
+    "minecraft:red_bed",
+    "minecraft:white_bed",
+    "minecraft:orange_bed",
+    "minecraft:magenta_bed",
+    "minecraft:light_blue_bed",
+    "minecraft:yellow_bed",
+    "minecraft:lime_bed",
+    "minecraft:pink_bed",
+    "minecraft:gray_bed",
+    "minecraft:light_gray_bed",
+    "minecraft:cyan_bed",
+    "minecraft:purple_bed",
+    "minecraft:blue_bed",
+    "minecraft:brown_bed",
+    "minecraft:green_bed",
+    "minecraft:black_bed",
+    { "id": "applewoodrebarked:apple_wardrobe", "required": false },
+    { "id": "applewoodrebarked:apple_dresser", "required": false },
+    { "id": "applewoodrebarked:apple_base_cabinet", "required": false },
+    { "id": "applewoodrebarked:apple_grandfather_clock", "required": false },
+    { "id": "applewoodrebarked:apple_desk", "required": false }
+  ]
+}

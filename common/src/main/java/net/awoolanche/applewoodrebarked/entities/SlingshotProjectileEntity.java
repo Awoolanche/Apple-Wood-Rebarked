@@ -1,6 +1,6 @@
 package net.awoolanche.applewoodrebarked.entities;
 
-import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
+import net.awoolanche.applewoodrebarked.items.SlingshotItem;
 import net.awoolanche.applewoodrebarked.util.ModAmmoTooltip;
 
 import net.minecraft.core.BlockPos;
@@ -21,17 +21,23 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.item.component.Fireworks;
+import net.minecraft.world.item.context.DirectionalPlaceContext;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -106,6 +112,7 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
         else if (ammo.is(Items.FLINT)) damage = 4f;
         else if (ammo.is(Items.FIRE_CHARGE)) { damage = 5f; setOnFire = true; }
         else if (ammo.is(Items.SLIME_BALL)) damage = 1f;
+        else if (ammo.getItem() instanceof BlockItem) damage = 3f;
 
         if (damage > 0f) {
             Entity owner = this.getOwner();
@@ -203,8 +210,6 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
         ItemStack ammo = this.getItem();
         double x = this.getX(), y = this.getY(), z = this.getZ();
 
-        AppleWoodRebarked.LOGGER.info("[slingshot] applySlingshotEffect ammo={}", ammo);
-
         if (ammo.is(Items.EGG)) {
             level.playSound(null, x, y, z, SoundEvents.EGG_THROW, SoundSource.NEUTRAL, 0.8F, 0.8F + level.random.nextFloat() * 0.4F);
             if (!level.isClientSide && level.random.nextInt(8) == 0) {
@@ -234,12 +239,59 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
             spawnFireworkExplosion(ammo, x, y, z);
             applyFlashDebuff(x, y, z);
         } else if (ammo.is(Items.SPLASH_POTION)) {
-            AppleWoodRebarked.LOGGER.info("[slingshot] applySlingshotEffect: splash potion branch hit, ammo={}", ammo);
             applySplashPotion(ammo, x, y, z);
         } else if (ammo.is(Items.LINGERING_POTION)) {
-            AppleWoodRebarked.LOGGER.info("[slingshot] applySlingshotEffect: lingering potion branch hit, ammo={}", ammo);
             spawnLingeringCloud(ammo, x, y, z);
+        } else if (ammo.getItem() instanceof BlockItem blockItem) {
+            placeBlockAmmo(blockItem, hitResult);
         }
+    }
+
+    private void placeBlockAmmo(BlockItem blockItem, HitResult hitResult) {
+        Level level = this.level();
+        if (level.isClientSide) return;
+
+        if (SlingshotItem.isMultiblock(blockItem)) {
+            dropAmmoItem(blockItem);
+            return;
+        }
+
+        if (!(hitResult instanceof BlockHitResult blockHit)) {
+            dropAmmoItem(blockItem);
+            return;
+        }
+
+        Direction hitDirection = blockHit.getDirection();
+        BlockPos placePos = blockHit.getBlockPos().relative(hitDirection);
+
+        if (!level.getBlockState(placePos).canBeReplaced()) {
+            dropAmmoItem(blockItem);
+            return;
+        }
+
+        ItemStack placeStack = new ItemStack(blockItem, 1);
+        DirectionalPlaceContext context = new DirectionalPlaceContext(level, placePos, hitDirection, placeStack, hitDirection);
+        InteractionResult result = blockItem.place(context);
+
+        if (result.consumesAction()) {
+            BlockState placedState = level.getBlockState(placePos);
+            level.updateNeighborsAt(placePos, placedState.getBlock());
+            level.playSound(null, placePos, placedState.getSoundType().getPlaceSound(), SoundSource.BLOCKS,
+                    1.0F, 0.9F + level.random.nextFloat() * 0.2F);
+        } else {
+            dropAmmoItem(blockItem);
+        }
+    }
+
+    private void dropAmmoItem(BlockItem blockItem) {
+        Level level = this.level();
+        if (level.isClientSide) return;
+
+        ItemEntity itemEntity = new ItemEntity(level, this.getX(), this.getY(), this.getZ(), new ItemStack(blockItem, 1));
+        itemEntity.setDeltaMovement(this.getDeltaMovement().scale(0.3));
+        level.addFreshEntity(itemEntity);
+
+        level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.STONE_HIT, SoundSource.NEUTRAL, 0.6F, 0.8F);
     }
 
     private void applySplashPotion(ItemStack potionStack, double x, double y, double z) {
@@ -249,39 +301,29 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
         PotionContents potionContents = potionStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
         boolean isInstant = potionContents.potion().map(p -> p.value().hasInstantEffects()).orElse(false);
 
-        AppleWoodRebarked.LOGGER.info("[slingshot] applySplashPotion at ({}, {}, {}), potion={}, isInstant={}",
-                x, y, z, potionContents.potion().map(Object::toString).orElse("none"), isInstant);
-
         level.levelEvent(null, isInstant ? 2007 : 2002, BlockPos.containing(x, y, z), potionContents.getColor());
 
         AABB area = new AABB(x - 4, y - 4, z - 4, x + 4, y + 4, z + 4);
         Entity owner = this.getOwner();
 
         List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, area);
-        AppleWoodRebarked.LOGGER.info("[slingshot] found {} living entities in splash radius", targets.size());
 
         for (LivingEntity target : targets) {
             double distanceSqr = target.distanceToSqr(x, y, z);
             if (distanceSqr > 16.0) continue;
 
             double factor = 1.0 - Math.sqrt(distanceSqr) / 4.0;
-            AppleWoodRebarked.LOGGER.info("[slingshot] applying to {} at distSqr={} factor={}", target, distanceSqr, factor);
 
             potionContents.forEachEffect(effectInstance -> {
                 MobEffect effect = effectInstance.getEffect().value();
 
                 if (effect.isInstantenous()) {
-                    AppleWoodRebarked.LOGGER.info("[slingshot] instant effect {} amplifier={}", effect.getDescriptionId(), effectInstance.getAmplifier());
                     effect.applyInstantenousEffect(this, owner, target, effectInstance.getAmplifier(), factor);
                 } else {
                     int duration = (int) (factor * effectInstance.getDuration() + 0.5);
-                    AppleWoodRebarked.LOGGER.info("[slingshot] timed effect {} baseDuration={} scaledDuration={}",
-                            effect.getDescriptionId(), effectInstance.getDuration(), duration);
                     if (duration > 20) {
                         target.addEffect(new MobEffectInstance(effectInstance.getEffect(), duration, effectInstance.getAmplifier(),
                                 effectInstance.isAmbient(), effectInstance.isVisible()));
-                    } else {
-                        AppleWoodRebarked.LOGGER.warn("[slingshot] scaled duration {} too short (<=20 ticks), effect skipped", duration);
                     }
                 }
             });
@@ -326,7 +368,6 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
         level.playSound(null, x, y, z, SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.NEUTRAL, 0.8F, 1.0F);
     }
 
-    // Blindness + Slowness for 5 seconds (100 ticks) to any living entity within a 3 block radius.
     private void applyFlashDebuff(double x, double y, double z) {
         Level level = this.level();
         AABB area = new AABB(x - 2, y - 2, z - 2, x + 2, y + 2, z + 2);
