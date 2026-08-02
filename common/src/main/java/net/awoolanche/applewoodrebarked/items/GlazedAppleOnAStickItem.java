@@ -39,7 +39,7 @@ public class GlazedAppleOnAStickItem extends Item {
                 MutableComponent line = Component.translatable(effect.getDescriptionId());
 
                 int seconds = BakeryCompat.SUGAR_RUSH_DURATION / 20;
-                line = line.append(Component.literal(String.format(" (%d:%02d)", seconds / 60, seconds % 60)));
+                line = line.append(Component.literal(String.format(" (%02d:%02d)", seconds / 60, seconds % 60)));
 
                 tooltip.add(line.withStyle(effect.getCategory().getTooltipFormatting()));
             });
