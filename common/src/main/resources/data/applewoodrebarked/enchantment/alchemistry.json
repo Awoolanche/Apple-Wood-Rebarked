@@ -1,0 +1,22 @@
+{
+  "description": {
+    "translate": "enchantment.applewoodrebarked.alchemistry"
+  },
+  "supported_items": "#applewoodrebarked:enchantable/alchemistry",
+  "primary_items": "#applewoodrebarked:enchantable/alchemistry",
+  "weight": 2,
+  "max_level": 1,
+  "min_cost": {
+    "base": 20,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 55,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 6,
+  "slots": [
+    "mainhand",
+    "offhand"
+  ]
+}

@@ -2,7 +2,10 @@ package net.awoolanche.applewoodrebarked.items;
 
 import net.awoolanche.applewoodrebarked.entities.SlingshotProjectileEntity;
 import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
+import net.awoolanche.applewoodrebarked.enchantments.ModEnchantments;
 
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -13,6 +16,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import java.util.List;
 import java.util.function.Predicate;
@@ -22,13 +27,20 @@ import net.minecraft.network.chat.Component;
 public class SlingshotItem extends Item {
 
     public static final Predicate<ItemStack> IS_AMMO = stack ->
-                    stack.is(Items.EGG) ||
+            stack.is(Items.EGG) ||
                     stack.is(Items.SNOWBALL) ||
                     stack.is(Items.CLAY_BALL) ||
                     stack.is(Items.FLINT) ||
                     stack.is(Items.SLIME_BALL) ||
                     stack.is(Items.FIRE_CHARGE) ||
-                    stack.is(Items.CHORUS_FRUIT);
+                    stack.is(Items.CHORUS_FRUIT) ||
+                    stack.is(Items.FIREWORK_STAR) ||
+                    stack.is(Items.GOLD_NUGGET) ||
+                    stack.is(Items.IRON_NUGGET);
+
+    public static final Predicate<ItemStack> IS_POTION_AMMO = stack ->
+            stack.is(Items.SPLASH_POTION) ||
+                    stack.is(Items.LINGERING_POTION);
 
     public SlingshotItem(Properties properties) {
         super(properties);
@@ -43,7 +55,7 @@ public class SlingshotItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
-        boolean canSourceAmmo = !findAmmo(player).isEmpty() || player.getAbilities().instabuild;
+        boolean canSourceAmmo = !findAmmo(player, itemStack, level).isEmpty() || player.getAbilities().instabuild;
 
         if (!canSourceAmmo) {
             return InteractionResultHolder.fail(itemStack);
@@ -65,7 +77,7 @@ public class SlingshotItem extends Item {
     public void releaseUsing(ItemStack stack, Level level, LivingEntity user, int remainingUseTicks) {
         if (!(user instanceof Player player)) return;
 
-        ItemStack ammoStack = findAmmo(player);
+        ItemStack ammoStack = findAmmo(player, stack, level);
         boolean isCreative = player.getAbilities().instabuild;
 
         if (ammoStack.isEmpty()/* && !isCreative*/) return;
@@ -95,18 +107,28 @@ public class SlingshotItem extends Item {
         }
     }
 
-    public static ItemStack findAmmo(Player player) {
-        if (IS_AMMO.test(player.getOffhandItem())) {
+    public static ItemStack findAmmo(Player player, ItemStack slingshotStack, Level level) {
+        Predicate<ItemStack> ammoPredicate = hasAlchemistry(slingshotStack, level) ? IS_AMMO.or(IS_POTION_AMMO) : IS_AMMO;
+
+        if (ammoPredicate.test(player.getOffhandItem())) {
             return player.getOffhandItem();
         }
 
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack invStack = player.getInventory().getItem(i);
-            if (IS_AMMO.test(invStack)) {
+            if (ammoPredicate.test(invStack)) {
                 return invStack;
             }
         }
         return ItemStack.EMPTY;
+    }
+
+    public static boolean hasAlchemistry(ItemStack slingshotStack, Level level) {
+        Holder<Enchantment> alchemistry = level.registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(ModEnchantments.ALCHEMISTRY);
+
+        return EnchantmentHelper.getItemEnchantmentLevel(alchemistry, slingshotStack) > 0;
     }
 
 

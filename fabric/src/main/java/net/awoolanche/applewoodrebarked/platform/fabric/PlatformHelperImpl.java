@@ -49,7 +49,7 @@ public class PlatformHelperImpl extends PlatformHelper {
     public static void appendTooltip(ItemStack stack, List<Component> tooltip) {
         LocalPlayer player = Minecraft.getInstance().player;
         if (player != null) {
-            ItemStack ammo = SlingshotItem.findAmmo(player);
+            ItemStack ammo = SlingshotItem.findAmmo(player, stack, player.level());
             ModAmmoTooltip.appendTooltip(ammo, tooltip, player.getAbilities().instabuild);
         }
     }

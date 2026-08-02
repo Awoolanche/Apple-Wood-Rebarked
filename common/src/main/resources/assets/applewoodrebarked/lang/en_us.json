@@ -5,6 +5,9 @@
   "Effects": "Effects",
     "effect.applewoodrebarked.ferocity_effect": "Ferocity",
 
+  "Enchantments": "Enchantments",
+  "enchantment.applewoodrebarked.alchemistry": "Alchemistry",
+
   "Items": "Items",
     "item.applewoodrebarked.test_item": "Test Item",
     "item.applewoodrebarked.apple_boat": "Apple Boat",

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:snowball",
+    "minecraft:egg",
+    "minecraft:chorus_fruit",
+    "minecraft:flint",
+    "minecraft:fire_charge",
+    "minecraft:slime_ball",
+    "minecraft:clay_ball",
+    "minecraft:iron_nugget",
+    "minecraft:gold_nugget",
+    "minecraft:firework_star"
+  ]
+}
