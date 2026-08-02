@@ -88,6 +88,10 @@ public class ModTabs {
                     out.accept(ModBlocks.TEA_CRATE.get());
                 }
 
+                out.accept(ModItems.APPLE_ON_A_STICK.get());
+                out.accept(ModItems.GOLDEN_APPLE_ON_A_STICK.get());
+                out.accept(ModItems.GLAZED_APPLE_ON_A_STICK.get());
+                out.accept(ModItems.APPLE_TURNOVER.get());
                 out.accept(ModItems.AWOO_PIE_MOONSHINE.get());
                 out.accept(ModItems.SLINGSHOT.get());
 

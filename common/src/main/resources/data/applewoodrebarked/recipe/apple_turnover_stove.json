@@ -1,0 +1,18 @@
+{
+  "type": "farm_and_charm:stove",
+  "fabric:load_conditions": [
+    { "condition": "fabric:all_mods_loaded", "values": ["bakery", "farm_and_charm"] }
+  ],
+  "neoforge:conditions": [
+    { "type": "neoforge:mod_loaded", "modid": "bakery" },
+    { "type": "neoforge:mod_loaded", "modid": "farm_and_charm" }
+  ],
+  "ingredients": [
+    { "item": "minecraft:apple" },
+    { "item": "bakery:sweet_dough" },
+    { "item": "minecraft:sugar" }
+  ],
+  "result": { "id": "applewoodrebarked:apple_turnover", "count": 2 },
+  "experience": 0.2,
+  "requiresLearning": false
+}

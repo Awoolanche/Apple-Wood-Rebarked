@@ -13,4 +13,6 @@ public class ModCompat {
             Platform.isModLoaded("lilis_lucky_lures");
     public static final boolean HERBALBREWS =
             Platform.isModLoaded("herbalbrews");
+    public static final boolean BAKERY =
+            Platform.isModLoaded("bakery");
 }

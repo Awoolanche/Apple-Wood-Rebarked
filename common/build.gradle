@@ -22,4 +22,8 @@ dependencies {
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-fabric"
 
     modCompileOnly "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-fabric"
+
+    modCompileOnly "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version}-fabric"
+
+    modCompileOnly "maven.modrinth:lets-do-farm-charm:${project.farmandcharm_version}-fabric"
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "applewoodrebarked:item/glazed_apple_on_a_stick"
+  }
+}
