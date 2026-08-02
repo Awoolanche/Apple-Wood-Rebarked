@@ -271,7 +271,14 @@ public class SlingshotProjectileEntity extends ThrowableItemProjectile {
 
         ItemStack placeStack = new ItemStack(blockItem, 1);
         DirectionalPlaceContext context = new DirectionalPlaceContext(level, placePos, hitDirection, placeStack, hitDirection);
-        InteractionResult result = blockItem.place(context);
+
+        InteractionResult result;
+        try {
+            result = blockItem.place(context);
+        } catch (Exception e) {
+            dropAmmoItem(blockItem);
+            return;
+        }
 
         if (result.consumesAction()) {
             BlockState placedState = level.getBlockState(placePos);
