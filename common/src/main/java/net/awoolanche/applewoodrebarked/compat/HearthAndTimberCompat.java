@@ -2,6 +2,7 @@ package net.awoolanche.applewoodrebarked.compat;
 
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.minecraft.core.registries.Registries;
@@ -9,10 +10,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
+import net.satisfy.hearth_and_timber.core.registry.EntityTypeRegistry;
 import net.satisfy.hearth_and_timber.core.registry.ObjectRegistry;
 import net.satisfy.hearth_and_timber.core.registry.TabRegistry;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class HearthAndTimberCompat {
 
@@ -38,6 +42,19 @@ public class HearthAndTimberCompat {
             PlatformHelper.insertAfter(COMPAT_TAB_KEY, HearthAndTimberBlocks.APPLE_WINDOW_CASING, HearthAndTimberBlocks.APPLE_WINDOW_PANE);
             PlatformHelper.insertAfter(COMPAT_TAB_KEY, HearthAndTimberBlocks.APPLE_WINDOW_PANE, HearthAndTimberBlocks.APPLE_WINDOW);
         }
+    }
+
+    public static void patchBlockEntityValidity() {
+        if (!ModCompat.HEARTH_AND_TIMBER) {
+            return;
+        }
+
+        var windowCasingType = EntityTypeRegistry.WINDOW_CASING_BLOCK_ENTITY.get();
+        BlockEntityTypeMixin accessor = (BlockEntityTypeMixin) windowCasingType;
+
+        Set<Block> validBlocks = new HashSet<>(accessor.getValidBlocks());
+        validBlocks.add(HearthAndTimberBlocks.APPLE_WINDOW_CASING.get());
+        accessor.setValidBlocks(validBlocks);
     }
 
     private static void insertAfterDarkCherry(

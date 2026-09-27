@@ -55,6 +55,7 @@ public final class AppleWoodRebarked {
 
         if (ModCompat.HEARTH_AND_TIMBER) {
             LifecycleEvent.SETUP.register(HearthAndTimberCompat::registerCreativeTabs);
+            LifecycleEvent.SETUP.register(HearthAndTimberCompat::patchBlockEntityValidity);
         }
 
         LifecycleEvent.SETUP.register(() -> {
