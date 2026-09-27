@@ -15,4 +15,6 @@ public class ModCompat {
             Platform.isModLoaded("herbalbrews");
     public static final boolean BAKERY =
             Platform.isModLoaded("bakery");
+    public static final boolean WILDER_NATURE =
+            Platform.isModLoaded("wildernature");
 }

@@ -80,12 +80,19 @@ public class ModTabs {
                     out.accept(ModBlocks.CORN_CRATE.get());
                 }
 
+                // Lily's Lucky Lures Compatibility
                 if (Platform.isModLoaded("lilis_lucky_lures")) {
                     out.accept(ModBlocks.FISH_CRATE.get());
                 }
 
+                // Herbal Brews Compatibility
                 if (Platform.isModLoaded("herbalbrews")) {
                     out.accept(ModBlocks.TEA_CRATE.get());
+                }
+
+                // Wilder Nature Compatibility
+                if (Platform.isModLoaded("wildernature")) {
+                    out.accept(ModBlocks.TRUFFLE_CRATE.get());
                 }
 
                 out.accept(ModItems.APPLE_ON_A_STICK.get());

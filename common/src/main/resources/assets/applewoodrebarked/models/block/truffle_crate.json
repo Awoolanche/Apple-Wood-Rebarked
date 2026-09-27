@@ -1,0 +1,6 @@
+{
+  "parent": "applewoodrebarked:block/template_crate",
+  "textures": {
+    "3": "wildernature:block/truffle_bag_top"
+  }
+}

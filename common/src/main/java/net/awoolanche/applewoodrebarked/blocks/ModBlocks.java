@@ -39,6 +39,7 @@ public class ModBlocks {
     public static RegistrySupplier<Block> LETTUCE_CRATE;
     public static RegistrySupplier<Block> FISH_CRATE;
     public static RegistrySupplier<Block> TEA_CRATE;
+    public static RegistrySupplier<Block> TRUFFLE_CRATE;
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create("applewoodrebarked", Registries.BLOCK);
 
@@ -59,7 +60,6 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> APPLE_WALL_SIGN = registerWithoutItem("apple_wall_sign", () -> new AppleWallSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN), ModWoodType.APPLE));
     public static final RegistrySupplier<Block> APPLE_HANGING_SIGN = registerWithoutItem("apple_hanging_sign", () -> new AppleCeilingHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN), ModWoodType.APPLE));
     public static final RegistrySupplier<Block> APPLE_WALL_HANGING_SIGN = registerWithoutItem("apple_wall_hanging_sign", () -> new AppleWallHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodType.APPLE));
-
 
     public static final RegistrySupplier<Block> APPLE_CHAIR = registerWithItem("apple_chair", () -> new ChairBlock(BlockBehaviour.Properties.of().strength(1.5F)));
     public static final RegistrySupplier<Block> APPLE_BEAM = registerWithItem("apple_beam", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
@@ -107,6 +107,13 @@ public class ModBlocks {
     static {
         if (ModCompat.HERBALBREWS) {
             TEA_CRATE = registerWithItem("tea_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+        }
+    }
+
+    // Wilder Nature Compatibility
+    static {
+        if (ModCompat.WILDER_NATURE) {
+            TRUFFLE_CRATE = registerWithItem("truffle_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
         }
     }
 

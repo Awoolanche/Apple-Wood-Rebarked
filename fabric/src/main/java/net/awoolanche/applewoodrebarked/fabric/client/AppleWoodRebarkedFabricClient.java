@@ -77,6 +77,10 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TEA_CRATE.get(), RenderType.cutout());
         }
 
+        if (ModCompat.WILDER_NATURE) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRUFFLE_CRATE.get(), RenderType.cutout());
+        }
+
         if (ModCompat.FURNITURE) {
             BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_WARDROBE.get(), RenderType.cutout());
             BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_GRANDFATHER_CLOCK.get(), RenderType.cutout());
