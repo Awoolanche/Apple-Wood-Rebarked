@@ -11,7 +11,6 @@ import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModFuels;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
-import net.satisfy.vinery.core.item.DrinkBlockItem;
 import net.satisfy.vinery.core.registry.EntityTypeRegistry;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
 
@@ -57,12 +56,6 @@ public final class AppleWoodRebarked {
             LifecycleEvent.SETUP.register(HearthAndTimberCompat::registerCreativeTabs);
             LifecycleEvent.SETUP.register(HearthAndTimberCompat::patchBlockEntityValidity);
         }
-
-        LifecycleEvent.SETUP.register(() -> {
-            if (ModItems.AWOO_PIE_MOONSHINE.get() instanceof DrinkBlockItem drink) {
-                drink.setEffectSupplier(() -> ModEffects.FEROCITY, 1600, 0);
-            }
-        });
 
         LifecycleEvent.SETUP.register(() -> {
             var vineryStorageType = EntityTypeRegistry.STORAGE_ENTITY.get();

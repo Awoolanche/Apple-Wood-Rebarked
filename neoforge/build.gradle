@@ -39,6 +39,7 @@ dependencies {
 
     // If anyone tells you it's optional, they're wrong.
     modImplementation "maven.modrinth:lets-do-vinery:${project.vinery_version}-neoforge"
+    modImplementation("net.satisfy.foundation:foundation-neoforge:${project.foundation_version}") { transitive = false }
 
     // Furniture optional dependency.
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-neoforge"
