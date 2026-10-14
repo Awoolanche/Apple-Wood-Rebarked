@@ -4,11 +4,13 @@
     import net.awoolanche.applewoodrebarked.AppleWoodRebarked;
     import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
     import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
+    import net.awoolanche.applewoodrebarked.compat.FurnitureBlocks;
     import net.awoolanche.applewoodrebarked.effects.ModEffects;
     import net.awoolanche.applewoodrebarked.entities.AppleBoatEntity;
     import net.awoolanche.applewoodrebarked.entities.ModEntities;
     import net.awoolanche.applewoodrebarked.render.AppleBoatRenderer;
     import net.awoolanche.applewoodrebarked.render.VignetteRenderer;
+    import net.awoolanche.applewoodrebarked.util.ModCompat;
     import net.awoolanche.applewoodrebarked.util.ModPredicates;
     import net.awoolanche.applewoodrebarked.util.ModWoodType;
 
@@ -68,6 +70,10 @@
                 BlockEntityRenderers.register(ModBlockEntities.APPLE_HANGING_SIGN.get(), HangingSignRenderer::new);
 
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.AWOO_PIE_MOONSHINE.get(), RenderType.cutout());
+
+                if (ModCompat.FURNITURE) {
+                    ItemBlockRenderTypes.setRenderLayer(FurnitureBlocks.APPLE_BENCH.get(), RenderType.cutout());
+                }
 
             });
         }
