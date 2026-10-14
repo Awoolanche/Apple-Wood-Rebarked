@@ -4,6 +4,7 @@ import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.compat.FurnitureCompat;
 import net.awoolanche.applewoodrebarked.compat.HearthAndTimberCompat;
+import net.awoolanche.applewoodrebarked.compat.ModCompatTabs;
 import net.awoolanche.applewoodrebarked.effects.ModEffects;
 import net.awoolanche.applewoodrebarked.entities.ModEntities;
 import net.awoolanche.applewoodrebarked.items.ModItems;
@@ -11,11 +12,12 @@ import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.util.ModCompat;
 import net.awoolanche.applewoodrebarked.util.ModFuels;
 import net.awoolanche.applewoodrebarked.util.ModTabs;
-import net.satisfy.vinery.core.item.DrinkBlockItem;
 import net.satisfy.vinery.core.registry.EntityTypeRegistry;
 import net.satisfy.vinery.core.registry.ObjectRegistry;
 
 import dev.architectury.event.events.common.LifecycleEvent;
+import dev.architectury.utils.Env;
+import dev.architectury.utils.EnvExecutor;
 import net.minecraft.world.level.block.Block;
 import dev.architectury.hooks.item.tool.AxeItemHooks;
 import net.minecraft.resources.ResourceLocation;
@@ -58,11 +60,9 @@ public final class AppleWoodRebarked {
             LifecycleEvent.SETUP.register(HearthAndTimberCompat::patchBlockEntityValidity);
         }
 
-        LifecycleEvent.SETUP.register(() -> {
-            if (ModItems.AWOO_PIE_MOONSHINE.get() instanceof DrinkBlockItem drink) {
-                drink.setEffectSupplier(() -> ModEffects.FEROCITY, 1600, 0);
-            }
-        });
+        if (ModCompat.FURNITURE || ModCompat.HEARTH_AND_TIMBER) {
+            EnvExecutor.runInEnv(Env.CLIENT, () -> ModCompatTabs::init);
+        }
 
         LifecycleEvent.SETUP.register(() -> {
             var vineryStorageType = EntityTypeRegistry.STORAGE_ENTITY.get();

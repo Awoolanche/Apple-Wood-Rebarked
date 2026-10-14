@@ -1,8 +1,10 @@
 package net.awoolanche.applewoodrebarked.compat;
 
-import com.berksire.furniture.core.block.*;
-import com.berksire.furniture.core.registry.EntityTypeRegistry;
-import com.berksire.furniture.core.registry.SoundRegistry;
+import net.satisfy.foundation.block.ShutterBlock;
+import net.satisfy.foundation.block.WardrobeBlock;
+import net.satisfy.furniture.core.block.*;
+import net.satisfy.furniture.core.registry.EntityTypeRegistry;
+import net.satisfy.furniture.core.registry.SoundRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
@@ -39,8 +41,8 @@ public final class FurnitureBlocks {
         APPLE_DESK = ModBlocks.registerWithItem("apple_desk", () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).pushReaction(PushReaction.IGNORE)));
         APPLE_SHUTTER = ModBlocks.registerWithItem("apple_shutter", () -> new ShutterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).pushReaction(PushReaction.IGNORE)));
         APPLE_DRESSER = ModBlocks.registerWithItem("apple_dresser", () -> new DresserBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundRegistry.CABINET_OPEN, SoundRegistry.CABINET_CLOSE));
-        APPLE_WARDROBE = ModBlocks.registerWithItem("apple_wardrobe", () -> new WardrobeBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-        APPLE_BASE_CABINET = ModBlocks.registerWithItem("apple_base_cabinet", () -> new com.berksire.furniture.core.block.CabinetBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundRegistry.CABINET_OPEN, SoundRegistry.CABINET_CLOSE));
+        APPLE_WARDROBE = ModBlocks.registerWithItem("apple_wardrobe", () -> new WardrobeBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), () -> EntityTypeRegistry.WARDROBE_BLOCK_ENTITY.get()));
+        APPLE_BASE_CABINET = ModBlocks.registerWithItem("apple_base_cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundRegistry.CABINET_OPEN, SoundRegistry.CABINET_CLOSE));
     }
 
     public static void fixGrandfatherClockValidBlocks() {

@@ -1,9 +1,8 @@
 package net.awoolanche.applewoodrebarked.compat;
 
-import com.berksire.furniture.core.registry.EntityTypeRegistry;
-import com.berksire.furniture.core.registry.ObjectRegistry;
-import com.berksire.furniture.core.registry.TabRegistry;
-import dev.architectury.registry.CreativeTabRegistry;
+import net.satisfy.furniture.core.registry.EntityTypeRegistry;
+import net.satisfy.furniture.core.registry.ObjectRegistry;
+import net.satisfy.furniture.core.registry.TabRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.awoolanche.applewoodrebarked.mixin.BlockEntityTypeMixin;
 import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
@@ -12,24 +11,29 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class FurnitureCompat {
 
-    private static final ResourceKey<CreativeModeTab> COMPAT_TAB_KEY = ResourceKey.create(
+    public static final ResourceKey<CreativeModeTab> COMPAT_TAB_KEY = ResourceKey.create(
             Registries.CREATIVE_MODE_TAB,
-            ResourceLocation.fromNamespaceAndPath("furniture", "furniture_compat_layer"));
+            ResourceLocation.fromNamespaceAndPath("furniture", "furniture"));
 
     public static void fixBlockEntityValidBlocks() {
         if (!ModCompat.FURNITURE) {
             return;
         }
 
+        addValidBlock(EntityTypeRegistry.MIRROR_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_MIRROR.get());
         addValidBlock(EntityTypeRegistry.DRESSER_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_DRESSER.get());
         addValidBlock(EntityTypeRegistry.CLOCK_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_CLOCK.get());
         addValidBlock(EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get(), FurnitureBlocks.APPLE_GRANDFATHER_CLOCK.get());
@@ -42,7 +46,7 @@ public class FurnitureCompat {
             return;
         }
 
-        if (TabRegistry.FURNITURE_COMPAT_LAYER_TAB != null) {
+        if (TabRegistry.FURNITURE_TAB != null) {
             insertAfterDarkCherry(ObjectRegistry.SHUTTERS, FurnitureBlocks.APPLE_SHUTTER);
             insertAfterDarkCherry(ObjectRegistry.BENCHES, FurnitureBlocks.APPLE_BENCH);
             insertAfterDarkCherry(ObjectRegistry.DESK_CHAIRS, FurnitureBlocks.APPLE_DESK_CHAIR);
@@ -53,6 +57,27 @@ public class FurnitureCompat {
             insertAfterDarkCherry(ObjectRegistry.CLOCKS, FurnitureBlocks.APPLE_CLOCK);
             insertAfterDarkCherry(ObjectRegistry.GRANDFATHER_CLOCKS, FurnitureBlocks.APPLE_GRANDFATHER_CLOCK);
             insertAfterDarkCherry(ObjectRegistry.MIRRORS, FurnitureBlocks.APPLE_MIRROR);
+        }
+    }
+
+    public static void acceptCompatItems(CreativeModeTab.Output output) {
+        if (!ModCompat.FURNITURE) {
+            return;
+        }
+
+        List<Supplier<? extends ItemLike>> items = List.of(
+                FurnitureBlocks.APPLE_SHUTTER,
+                FurnitureBlocks.APPLE_BENCH,
+                FurnitureBlocks.APPLE_DESK_CHAIR,
+                FurnitureBlocks.APPLE_BASE_CABINET,
+                FurnitureBlocks.APPLE_DRESSER,
+                FurnitureBlocks.APPLE_WARDROBE,
+                FurnitureBlocks.APPLE_DESK,
+                FurnitureBlocks.APPLE_CLOCK,
+                FurnitureBlocks.APPLE_GRANDFATHER_CLOCK,
+                FurnitureBlocks.APPLE_MIRROR);
+        for (Supplier<? extends ItemLike> item : items) {
+            output.accept(new ItemStack(item.get()));
         }
     }
 

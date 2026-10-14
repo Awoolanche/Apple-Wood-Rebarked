@@ -36,8 +36,13 @@ dependencies {
     // Vinery. If anyone tells you it's optional, they're wrong.
     modImplementation "maven.modrinth:lets-do-vinery:${project.vinery_version}-fabric"
 
+    modImplementation("net.satisfy.foundation:foundation-fabric:${project.foundation_version}") { transitive = false }
+
     // Sometimes Vinery breaks without it, dunno why.
     modRuntimeOnly "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
+
+    // Needed for Wilder Nature.
+    modRuntimeOnly "maven.modrinth:trinkets:${project.trinkets_version}"
 
     // Furniture optional dependency.
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-fabric"
@@ -48,8 +53,12 @@ dependencies {
     modLocalRuntime "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-fabric"
 
     // Bakery optional dependency.
-    modCompileOnly "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version}-fabric"
-    modLocalRuntime "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version}-fabric"
+    modCompileOnly "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version_fabric}-fabric"
+    modLocalRuntime "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version_fabric}-fabric"
+
+    // Wilder Nature optional dependency.
+    modCompileOnly "maven.modrinth:lets-do-wildernature:${project.wildernature_version}-fabric"
+    modLocalRuntime "maven.modrinth:lets-do-wildernature:${project.wildernature_version}-fabric"
 
     // Farm and Charm optional dependency, needed for Bakery.
     modCompileOnly "maven.modrinth:lets-do-farm-charm:${project.farmandcharm_version}-fabric"

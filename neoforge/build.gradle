@@ -38,7 +38,9 @@ dependencies {
     modImplementation "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
 
     // If anyone tells you it's optional, they're wrong.
-    modImplementation "maven.modrinth:lets-do-vinery:${project.vinery_version}-neoforge"
+    modImplementation "maven.modrinth:lets-do-vinery:${project.vinery_version}-neoforge"\
+
+    modImplementation("net.satisfy.foundation:foundation-neoforge:${project.foundation_version}") { transitive = false }
 
     // Furniture optional dependency.
     modCompileOnly "maven.modrinth:lets-do-furniture:${project.furniture_version}-neoforge"
@@ -49,8 +51,12 @@ dependencies {
     modLocalRuntime "maven.modrinth:lets-do-hearth-timber:${project.hearthandtimber_version}-neoforge"
 
     // Bakery optional dependency.
-    modCompileOnly "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version}-neoforge"
-    modLocalRuntime "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version}-neoforge"
+    modCompileOnly "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version_neoforge}-neoforge"
+    modLocalRuntime "maven.modrinth:lets-do-bakery-farmcharm-compat:${project.bakery_version_neoforge}-neoforge"
+
+    // Wilder Nature optional dependency.
+    modCompileOnly "maven.modrinth:lets-do-wildernature:${project.wildernature_version}-neoforge"
+    modLocalRuntime "maven.modrinth:lets-do-wildernature:${project.wildernature_version}-neoforge"
 
     // Farm and Charm optional dependency, needed for Bakery.
     modCompileOnly "maven.modrinth:lets-do-farm-charm:${project.farmandcharm_version}-neoforge"

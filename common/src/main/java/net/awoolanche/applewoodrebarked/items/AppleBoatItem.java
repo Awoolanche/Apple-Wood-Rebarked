@@ -17,9 +17,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.satisfy.vinery.core.entity.DarkCherryBoatEntity;
-import net.satisfy.vinery.core.entity.DarkCherryChestBoatEntity;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Predicate;
