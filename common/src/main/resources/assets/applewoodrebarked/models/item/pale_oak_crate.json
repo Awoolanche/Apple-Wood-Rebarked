@@ -1,0 +1,9 @@
+{
+  "parent": "applewoodrebarked:block/template_crate",
+  "textures": {
+    "1": "applewoodrebarked:block/pale_oak_crate_side",
+    "2": "applewoodrebarked:block/pale_oak_crate_top",
+    "3": "minecraft:block/pale_oak_planks",
+    "particle": "applewoodrebarked:block/pale_oak_crate_top"
+  }
+}
