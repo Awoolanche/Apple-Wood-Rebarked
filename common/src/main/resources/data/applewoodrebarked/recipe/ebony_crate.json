@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": ["bloomingnature"]
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "bloomingnature"
+        }
+    ],
+    "pattern": [
+        "S S",
+        "S S",
+        "SSS"
+    ],
+    "key": {
+        "S": {
+            "tag": "bloomingnature:ebony_slab"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:ebony_crate"
+    }
+}

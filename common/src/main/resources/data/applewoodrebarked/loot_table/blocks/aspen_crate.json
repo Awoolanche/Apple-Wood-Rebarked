@@ -3,28 +3,27 @@
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
-      "values": ["farm_and_charm"]
+      "values": ["bloomingnature"]
     }
   ],
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "farm_and_charm"
+      "modid": "bloomingnature"
     }
   ],
   "pools": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "applewoodrebarked:onion_crate"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
+          "name": "applewoodrebarked:aspen_crate",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ]
         }
       ]
     }

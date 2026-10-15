@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": ["beachparty"]
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "beachparty"
+        }
+    ],
+    "pattern": [
+        "S S",
+        "S S",
+        "SSS"
+    ],
+    "key": {
+        "S": {
+            "tag": "beachparty:palm_slab"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:palm_crate"
+    }
+}

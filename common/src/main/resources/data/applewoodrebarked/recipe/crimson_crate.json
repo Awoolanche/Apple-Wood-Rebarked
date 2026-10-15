@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "S S",
+        "S S",
+        "SSS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:crimson_slab"
+        }
+    },
+    "result": {
+        "id": "applewoodrebarked:crimson_crate"
+    }
+}

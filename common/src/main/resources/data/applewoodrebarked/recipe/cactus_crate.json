@@ -3,29 +3,26 @@
     "fabric:load_conditions": [
         {
             "condition": "fabric:all_mods_loaded",
-            "values": ["herbalbrews"]
+            "values": ["bloomingnature"]
         }
     ],
     "neoforge:conditions": [
         {
             "type": "neoforge:mod_loaded",
-            "modid": "herbalbrews"
+            "modid": "bloomingnature"
         }
     ],
     "pattern": [
-        "P P",
-        "PBP",
-        "PPP"
+        "S S",
+        "S S",
+        "SSS"
     ],
     "key": {
-        "B": {
-            "item": "herbalbrews:tea_leaf_crate"
-        },
-        "P": {
-            "tag": "minecraft:planks"
+        "S": {
+            "tag": "bloomingnature:cactus_slab"
         }
     },
     "result": {
-        "id": "applewoodrebarked:tea_crate"
+        "id": "applewoodrebarked:cactus_crate"
     }
 }

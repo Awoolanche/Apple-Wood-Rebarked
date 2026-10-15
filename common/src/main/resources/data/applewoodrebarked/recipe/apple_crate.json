@@ -1,16 +1,13 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "P P",
-        "PBP",
-        "PPP"
+        "S S",
+        "S S",
+        "SSS"
     ],
     "key": {
-        "B": {
-            "item": "vinery:apple_bag"
-        },
-        "P": {
-            "tag": "minecraft:planks"
+        "S": {
+            "item": "applewoodrebarked:apple_slab"
         }
     },
     "result": {

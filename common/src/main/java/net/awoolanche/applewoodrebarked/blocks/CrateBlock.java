@@ -20,12 +20,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CrateBlock extends Block {
@@ -107,4 +109,18 @@ public class CrateBlock extends Block {
         }
         return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
+
+    @Override
+    protected List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
+        List<ItemStack> drops = new ArrayList<>(super.getDrops(state, params));
+        CrateContents contents = state.getValue(CONTENTS);
+        if (CONSUME_BAG && contents != CrateContents.EMPTY) {
+            ItemStack bag = contents.createBagStack();
+            if (bag != null && !bag.isEmpty()) {
+                drops.add(bag);
+            }
+        }
+        return drops;
+    }
+
 }

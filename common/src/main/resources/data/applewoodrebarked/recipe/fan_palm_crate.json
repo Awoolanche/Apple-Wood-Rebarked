@@ -3,29 +3,26 @@
     "fabric:load_conditions": [
         {
             "condition": "fabric:all_mods_loaded",
-            "values": ["farm_and_charm"]
+            "values": ["bloomingnature"]
         }
     ],
     "neoforge:conditions": [
         {
             "type": "neoforge:mod_loaded",
-            "modid": "farm_and_charm"
+            "modid": "bloomingnature"
         }
     ],
     "pattern": [
-        "P P",
-        "PBP",
-        "PPP"
+        "S S",
+        "S S",
+        "SSS"
     ],
     "key": {
-        "B": {
-            "item": "farm_and_charm:carrot_bag"
-        },
-        "P": {
-            "tag": "minecraft:planks"
+        "S": {
+            "tag": "bloomingnature:fan_palm_slab"
         }
     },
     "result": {
-        "id": "applewoodrebarked:carrot_crate"
+        "id": "applewoodrebarked:fan_palm_crate"
     }
 }
