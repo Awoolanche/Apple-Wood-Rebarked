@@ -1,0 +1,9 @@
+{
+  "parent": "applewoodrebarked:block/template_crate",
+  "textures": {
+    "1": "applewoodrebarked:block/swamp_oak_crate_side",
+    "2": "applewoodrebarked:block/swamp_oak_crate_top",
+    "3": "bloomingnature:block/swamp_oak_planks",
+    "particle": "applewoodrebarked:block/swamp_oak_crate_top"
+  }
+}

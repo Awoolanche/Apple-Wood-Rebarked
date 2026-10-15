@@ -17,4 +17,12 @@ public class ModCompat {
             Platform.isModLoaded("bakery");
     public static final boolean WILDER_NATURE =
             Platform.isModLoaded("wildernature");
+    public static final boolean MEADOW =
+            Platform.isModLoaded("meadow");
+    public static final boolean BLOOMING_NATURE =
+            Platform.isModLoaded("bloomingnature");
+    public static final boolean ALPINE_WHISPERS =
+            Platform.isModLoaded("alpinewhispers");
+    public static final boolean BEACHPARTY =
+            Platform.isModLoaded("beachparty");
 }

@@ -75,14 +75,34 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> AWOO_PIE_MOONSHINE = registerWithoutItem("awoo_pie_moonshine", () -> new WineBottleBlock(getWineSettings(), 1));
 
     public static final Map<String, RegistrySupplier<Block>> CRATES = new LinkedHashMap<>();
-    static {
-        for (String wood : new String[]{"oak","spruce","birch","jungle","acacia","dark_oak","mangrove",
-                "cherry","crimson","warped","apple"/*,"poplar","pale_oak"*/}) {
+
+    private static void registerCrates(String... woods) {
+        for (String wood : woods) {
             CRATES.put(wood, registerWithItem(wood + "_crate",
                     () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
                             .noOcclusion())));
         }
     }
+
+    static {
+        registerCrates("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove",
+                "cherry", "crimson", "warped", "apple", "dark_cherry");
+
+        if (ModCompat.MEADOW) {
+            registerCrates("pine");
+        }
+        if (ModCompat.BEACHPARTY) {
+            registerCrates("palm");
+        }
+        if (ModCompat.ALPINE_WHISPERS) {
+            registerCrates("arolla_pine");
+        }
+        if (ModCompat.BLOOMING_NATURE) {
+            registerCrates("chestnut", "cypress", "ebony", "fan_palm", "fir", "larch",
+                    "aspen", "baobab", "cactus", "swamp_oak", "swamp_cypress");
+        }
+    }
+
 
     // Furniture Compatibility
     static {

@@ -1,0 +1,9 @@
+{
+  "parent": "applewoodrebarked:block/template_crate",
+  "textures": {
+    "1": "applewoodrebarked:block/larch_crate_side",
+    "2": "applewoodrebarked:block/larch_crate_top",
+    "3": "bloomingnature:block/larch_planks",
+    "particle": "applewoodrebarked:block/larch_crate_top"
+  }
+}
