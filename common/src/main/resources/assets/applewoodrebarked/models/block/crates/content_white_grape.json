@@ -1,0 +1,6 @@
+{
+  "parent": "applewoodrebarked:block/crate_content",
+  "textures": {
+    "4": "vinery:block/bag_top_white_grapes"
+  }
+}

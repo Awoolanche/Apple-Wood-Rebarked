@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked;
 
 import net.awoolanche.applewoodrebarked.blockEntities.ModBlockEntities;
+import net.awoolanche.applewoodrebarked.blocks.CrateBlock;
 import net.awoolanche.applewoodrebarked.blocks.ModBlocks;
 import net.awoolanche.applewoodrebarked.compat.FurnitureCompat;
 import net.awoolanche.applewoodrebarked.compat.HearthAndTimberCompat;
@@ -46,6 +47,7 @@ public final class AppleWoodRebarked {
         ModItems.init();
         ModTabs.init();
         ModBlockEntities.init();
+        CrateBlock.registerEvents();
         ModEffects.init();
         LifecycleEvent.SETUP.register(ModFuels::init);
         LifecycleEvent.SETUP.register(ModBlocks::fixBlockEntityValidBlocks);

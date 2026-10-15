@@ -1,0 +1,137 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "applewoodrebarked:block/crates/poplar_crate"
+      }
+    },
+    {
+      "when": {
+        "contents": "apple"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_apple"
+      }
+    },
+    {
+      "when": {
+        "contents": "cherry"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_cherry"
+      }
+    },
+    {
+      "when": {
+        "contents": "red_grape"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_red_grape"
+      }
+    },
+    {
+      "when": {
+        "contents": "white_grape"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_white_grape"
+      }
+    },
+    {
+      "when": {
+        "contents": "tomato"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_tomato"
+      }
+    },
+    {
+      "when": {
+        "contents": "potato"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_potato"
+      }
+    },
+    {
+      "when": {
+        "contents": "carrot"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_carrot"
+      }
+    },
+    {
+      "when": {
+        "contents": "beetroot"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_beetroot"
+      }
+    },
+    {
+      "when": {
+        "contents": "corn"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_corn"
+      }
+    },
+    {
+      "when": {
+        "contents": "strawberry"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_strawberry"
+      }
+    },
+    {
+      "when": {
+        "contents": "onion"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_onion"
+      }
+    },
+    {
+      "when": {
+        "contents": "lettuce"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_lettuce"
+      }
+    },
+    {
+      "when": {
+        "contents": "oat"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_oat"
+      }
+    },
+    {
+      "when": {
+        "contents": "fish"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_fish"
+      }
+    },
+    {
+      "when": {
+        "contents": "tea"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_tea"
+      }
+    },
+    {
+      "when": {
+        "contents": "truffle"
+      },
+      "apply": {
+        "model": "applewoodrebarked:block/crates/content_truffle"
+      }
+    }
+  ]
+}

@@ -53,33 +53,7 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LATTICE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_DOOR.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_CRATE.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHERRY_CRATE.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_GRAPE_CRATE.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_GRAPE_CRATE.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.AWOO_PIE_MOONSHINE.get(), RenderType.cutout());
-        if (ModCompat.FARM_AND_CHARM) {
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTATO_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CARROT_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BEETROOT_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CORN_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STRAWBERRY_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ONION_CRATE.get(), RenderType.cutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LETTUCE_CRATE.get(), RenderType.cutout());
-        }
-
-        if (ModCompat.LILIS_LUCKY_LURES) {
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FISH_CRATE.get(), RenderType.cutout());
-        }
-
-        if (ModCompat.HERBALBREWS) {
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TEA_CRATE.get(), RenderType.cutout());
-        }
-
-        if (ModCompat.WILDER_NATURE) {
-            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRUFFLE_CRATE.get(), RenderType.cutout());
-        }
 
         if (ModCompat.FURNITURE) {
             BlockRenderLayerMap.INSTANCE.putBlock(FurnitureBlocks.APPLE_WARDROBE.get(), RenderType.cutout());
@@ -90,24 +64,6 @@ public class AppleWoodRebarkedFabricClient implements ClientModInitializer {
         if (ModCompat.HEARTH_AND_TIMBER) {
             BlockRenderLayerMap.INSTANCE.putBlock(HearthAndTimberBlocks.APPLE_WINDOW_PANE.get(), RenderType.cutout());
             BlockRenderLayerMap.INSTANCE.putBlock(HearthAndTimberBlocks.APPLE_WINDOW.get(), RenderType.cutout());
-        }
-
-        java.util.List<RegistrySupplier<Block>> fcCrates =
-                java.util.Arrays.asList(
-                        ModBlocks.TOMATO_CRATE,
-                        ModBlocks.POTATO_CRATE,
-                        ModBlocks.CARROT_CRATE,
-                        ModBlocks.BEETROOT_CRATE,
-                        ModBlocks.CORN_CRATE,
-                        ModBlocks.STRAWBERRY_CRATE,
-                        ModBlocks.ONION_CRATE,
-                        ModBlocks.LETTUCE_CRATE
-                );
-
-        for (var crate : fcCrates) {
-            if (crate != null && crate.isPresent()) {
-                BlockRenderLayerMap.INSTANCE.putBlock(crate.get(), RenderType.cutout());
-            }
         }
     }
 

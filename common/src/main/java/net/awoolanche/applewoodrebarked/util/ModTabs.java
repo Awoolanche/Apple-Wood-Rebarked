@@ -63,37 +63,7 @@ public class ModTabs {
                 out.accept(ModBlocks.APPLE_WINE_RACK_SMALL.get());
                 out.accept(ModBlocks.APPLE_WINE_RACK_BIG.get());
 
-                out.accept(ModBlocks.APPLE_CRATE.get());
-                out.accept(ModBlocks.CHERRY_CRATE.get());
-                out.accept(ModBlocks.RED_GRAPE_CRATE.get());
-                out.accept(ModBlocks.WHITE_GRAPE_CRATE.get());
-
-                // F&C Compatibility
-                if (Platform.isModLoaded("farm_and_charm")) {
-                    out.accept(ModBlocks.TOMATO_CRATE.get());
-                    out.accept(ModBlocks.POTATO_CRATE.get());
-                    out.accept(ModBlocks.CARROT_CRATE.get());
-                    out.accept(ModBlocks.LETTUCE_CRATE.get());
-                    out.accept(ModBlocks.STRAWBERRY_CRATE.get());
-                    out.accept(ModBlocks.BEETROOT_CRATE.get());
-                    out.accept(ModBlocks.ONION_CRATE.get());
-                    out.accept(ModBlocks.CORN_CRATE.get());
-                }
-
-                // Lily's Lucky Lures Compatibility
-                if (Platform.isModLoaded("lilis_lucky_lures")) {
-                    out.accept(ModBlocks.FISH_CRATE.get());
-                }
-
-                // Herbal Brews Compatibility
-                if (Platform.isModLoaded("herbalbrews")) {
-                    out.accept(ModBlocks.TEA_CRATE.get());
-                }
-
-                // Wilder Nature Compatibility
-                if (Platform.isModLoaded("wildernature")) {
-                    out.accept(ModBlocks.TRUFFLE_CRATE.get());
-                }
+                ModBlocks.CRATES.values().forEach(c -> out.accept(c.get()));
 
                 out.accept(ModItems.APPLE_ON_A_STICK.get());
                 out.accept(ModItems.GOLDEN_APPLE_ON_A_STICK.get());

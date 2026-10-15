@@ -30,25 +30,14 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 
 import static net.awoolanche.applewoodrebarked.items.ModItems.ITEMS;
 
 public class ModBlocks {
-
-    // F&C Compatibility declarations
-    public static RegistrySupplier<Block> TOMATO_CRATE;
-    public static RegistrySupplier<Block> POTATO_CRATE;
-    public static RegistrySupplier<Block> CARROT_CRATE;
-    public static RegistrySupplier<Block> BEETROOT_CRATE;
-    public static RegistrySupplier<Block> CORN_CRATE;
-    public static RegistrySupplier<Block> STRAWBERRY_CRATE;
-    public static RegistrySupplier<Block> ONION_CRATE;
-    public static RegistrySupplier<Block> LETTUCE_CRATE;
-    public static RegistrySupplier<Block> FISH_CRATE;
-    public static RegistrySupplier<Block> TEA_CRATE;
-    public static RegistrySupplier<Block> TRUFFLE_CRATE;
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create("applewoodrebarked", Registries.BLOCK);
 
@@ -83,45 +72,15 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> APPLE_WINE_RACK_MID = registerWithItem("apple_wine_rack_mid", () -> new BigBottleStorageBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD).noOcclusion()));
 
     public static final RegistrySupplier<Block> APPLE_FLOORBOARD = registerWithItem("apple_floorboard", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final RegistrySupplier<Block> APPLE_CRATE = registerWithItem("apple_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final RegistrySupplier<Block> CHERRY_CRATE = registerWithItem("cherry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final RegistrySupplier<Block> RED_GRAPE_CRATE = registerWithItem("red_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final RegistrySupplier<Block> WHITE_GRAPE_CRATE = registerWithItem("white_grape_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-
     public static final RegistrySupplier<Block> AWOO_PIE_MOONSHINE = registerWithoutItem("awoo_pie_moonshine", () -> new WineBottleBlock(getWineSettings(), 1));
 
-    // F&C Compatibility
+    public static final Map<String, RegistrySupplier<Block>> CRATES = new LinkedHashMap<>();
     static {
-        if (ModCompat.FARM_AND_CHARM) {
-            TOMATO_CRATE = registerWithItem("tomato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            POTATO_CRATE = registerWithItem("potato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            CARROT_CRATE = registerWithItem("carrot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            BEETROOT_CRATE = registerWithItem("beetroot_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            CORN_CRATE = registerWithItem("corn_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            STRAWBERRY_CRATE = registerWithItem("strawberry_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            ONION_CRATE = registerWithItem("onion_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-            LETTUCE_CRATE = registerWithItem("lettuce_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-        }
-    }
-
-    // Lili's Lucky Lures Compatibility
-    static {
-        if (ModCompat.LILIS_LUCKY_LURES) {
-            FISH_CRATE = registerWithItem("fish_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-        }
-    }
-
-    // Herbal Brews Compatibility
-    static {
-        if (ModCompat.HERBALBREWS) {
-            TEA_CRATE = registerWithItem("tea_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-        }
-    }
-
-    // Wilder Nature Compatibility
-    static {
-        if (ModCompat.WILDER_NATURE) {
-            TRUFFLE_CRATE = registerWithItem("truffle_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+        for (String wood : new String[]{"oak","spruce","birch","jungle","acacia","dark_oak","mangrove",
+                "cherry","crimson","warped","apple"/*,"poplar","pale_oak"*/}) {
+            CRATES.put(wood, registerWithItem(wood + "_crate",
+                    () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+                            .noOcclusion())));
         }
     }
 

@@ -1,0 +1,6 @@
+{
+  "parent": "applewoodrebarked:block/crate_content",
+  "textures": {
+    "4": "farm_and_charm:block/bag_top_corn"
+  }
+}

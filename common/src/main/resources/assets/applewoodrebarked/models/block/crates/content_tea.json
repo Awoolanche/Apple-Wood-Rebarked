@@ -1,0 +1,6 @@
+{
+  "parent": "applewoodrebarked:block/crate_content",
+  "textures": {
+    "4": "herbalbrews:block/bag_top"
+  }
+}
