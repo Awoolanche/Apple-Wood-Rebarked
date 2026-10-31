@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.util;
 
 import net.awoolanche.applewoodrebarked.items.ModItems;
+import net.awoolanche.applewoodrebarked.items.SlingshotItem;
 
 import dev.architectury.registry.item.ItemPropertiesRegistry;
 import net.minecraft.resources.ResourceLocation;
@@ -11,7 +12,8 @@ public class ModPredicates {
                 ResourceLocation.withDefaultNamespace("pull"),
                 (stack, level, entity, seed) -> {
                     if (entity == null || entity.getUseItem() != stack) return 0.0F;
-                    return (float) (stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
+                    float ticks = (float) (stack.getUseDuration(entity) - entity.getUseItemRemainingTicks());
+                    return ticks / (20.0F * SlingshotItem.getChargeTimeFactor(stack, entity.level()));
                 });
 
         ItemPropertiesRegistry.register(ModItems.SLINGSHOT.get(),

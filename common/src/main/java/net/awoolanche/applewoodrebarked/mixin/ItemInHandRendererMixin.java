@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.mixin;
 
 import net.awoolanche.applewoodrebarked.items.ModItems;
+import net.awoolanche.applewoodrebarked.items.SlingshotItem;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -75,7 +76,7 @@ public abstract class ItemInHandRendererMixin {
 
         // Pull
         float used = (float)stack.getUseDuration(player) - ((float)player.getUseItemRemainingTicks() - tickDelta + 1.0F);
-        float pull = used / 20.0F;
+        float pull = used / (20.0F * SlingshotItem.getChargeTimeFactor(stack, player.level()));
         pull = (pull * pull + pull * 2.0F) / 3.0F;
         pull = Math.min(pull, 1.0F);
 

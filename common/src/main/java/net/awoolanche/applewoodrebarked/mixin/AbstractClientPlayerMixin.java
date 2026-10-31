@@ -1,6 +1,7 @@
 package net.awoolanche.applewoodrebarked.mixin;
 
 import net.awoolanche.applewoodrebarked.items.ModItems;
+import net.awoolanche.applewoodrebarked.items.SlingshotItem;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -22,7 +23,7 @@ public abstract class AbstractClientPlayerMixin {
         if (player.isUsingItem() && itemStack.is(ModItems.SLINGSHOT.get())) {
             int i = player.getTicksUsingItem();
 
-            float pullProgress = (float) i / 20.0f;
+            float pullProgress = (float) i / (20.0f * SlingshotItem.getChargeTimeFactor(itemStack, player.level()));
 
             if (pullProgress > 1.0f) { pullProgress = 1.0f; } else { pullProgress *= pullProgress; }
 

@@ -6,6 +6,7 @@ import net.awoolanche.applewoodrebarked.platform.PlatformHelper;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import java.util.List;
 import java.util.function.Predicate;
@@ -64,8 +66,15 @@ public class SlingshotItem extends Item {
         return false;
     }
 
+    private static final float BASE_CHARGE_TICKS = 15.0F;
+
     public SlingshotItem(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return 1;
     }
 
     @Override
@@ -108,13 +117,13 @@ public class SlingshotItem extends Item {
         }*/
 
         int useTime = this.getUseDuration(stack, user) - remainingUseTicks;
-        float power = getPowerForTime(useTime);
+        float power = getPowerForTime(useTime, getChargeTimeFactor(stack, level));
 
         if (power < 0.1f) return;
 
         if (!level.isClientSide) {
             SlingshotProjectileEntity proj = new SlingshotProjectileEntity(level, player, ammoStack);
-            proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.4f * power, 1.0f);
+            proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.4f * power * getRangeMultiplier(stack, level), 1.0f);
             level.addFreshEntity(proj);
 
             stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
@@ -165,8 +174,26 @@ public class SlingshotItem extends Item {
         return EnchantmentHelper.getItemEnchantmentLevel(heavyLifting, slingshotStack) > 0;
     }
 
-    private float getPowerForTime(int useTime) {
-        float f = (float)useTime / 15.0F;
+    public static float getRangeMultiplier(ItemStack slingshotStack, Level level) {
+        int powerLevel = getEnchantLevel(slingshotStack, level, Enchantments.POWER);
+        return Math.min(1.0F + 0.1F * powerLevel, 1.5F);
+    }
+
+    public static float getChargeTimeFactor(ItemStack slingshotStack, Level level) {
+        int quickChargeLevel = getEnchantLevel(slingshotStack, level, Enchantments.QUICK_CHARGE);
+        return Math.max(1.0F - 0.1F * quickChargeLevel, 0.1F);
+    }
+
+    private static int getEnchantLevel(ItemStack stack, Level level, ResourceKey<Enchantment> key) {
+        Holder<Enchantment> enchantment = level.registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(key);
+
+        return EnchantmentHelper.getItemEnchantmentLevel(enchantment, stack);
+    }
+
+    private float getPowerForTime(int useTime, float chargeTimeFactor) {
+        float f = (float)useTime / (BASE_CHARGE_TICKS * chargeTimeFactor);
         f = (f * f + f * 2.0F) / 3.0F;
         if (f > 1.0F) f = 1.0F;
         return f;
