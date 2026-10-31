@@ -59,10 +59,13 @@ public class PlatformHelperImpl {
                 if (event.getTabKey() == insertion.tabKey()) {
                     ItemStack anchorStack = new ItemStack(insertion.anchor().get());
                     ItemStack valueStack = new ItemStack(insertion.value().get());
-                    if (insertion.after()) {
-                        event.insertAfter(anchorStack, valueStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                    } else {
-                        event.insertBefore(anchorStack, valueStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    try {
+                        if (insertion.after()) {
+                            event.insertAfter(anchorStack, valueStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                        } else {
+                            event.insertBefore(anchorStack, valueStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                        }
+                    } catch (IllegalArgumentException ignored) {
                     }
                 }
             }
